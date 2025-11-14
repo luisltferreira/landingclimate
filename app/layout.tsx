@@ -13,6 +13,11 @@ const citrineVariable = localFont({
 export const metadata: Metadata = {
   title: 'Climate App',
   description: 'Explora eventos ambientais, inscreve-te no voluntariado e faz parte de uma comunidade que quer mudar Portugal. Transparência, impacto e ação real.',
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+  },
   icons: {
     icon: [
       {
@@ -38,7 +43,7 @@ export default function RootLayout({
     <html lang="pt-PT">
       <body className={`${citrineVariable.variable} font-sans antialiased`}>
         <LanguageProvider>
-          {children}
+        {children}
         </LanguageProvider>
       </body>
     </html>

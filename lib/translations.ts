@@ -8,6 +8,7 @@ export const translations = {
       values: 'Valores',
       community: 'Comunidade',
       recognition: 'Reconhecimento',
+      faq: 'FAQ',
     },
     hero: {
       title: 'Liga-te à ação que muda o planeta',
@@ -74,6 +75,32 @@ export const translations = {
         { name: 'Step Up to Startup', src: '/logos/stepuptostartup.png', alt: 'Step Up to Startup' },
       ],
     },
+    faq: {
+      title: 'Perguntas Frequentes',
+      subtitle: 'Tens dúvidas? Encontra aqui as respostas',
+      questions: [
+        {
+          question: 'O que é a Climate?',
+          answer: 'A Climate é uma plataforma digital que liga pessoas e organizações a eventos ecológicos reais, promovendo impacto positivo e comunidade ativa.',
+        },
+        {
+          question: 'Como posso participar em eventos?',
+          answer: 'Basta registares-te na app ou site, explorares os eventos disponíveis perto de ti e inscreveres-te num clique, é simples e aberto a todos.',
+        },
+        {
+          question: 'Tenho de pagar para participar?',
+          answer: 'A participação nos eventos é gratuita, salvo indicação especial do organizador (por exemplo, workshops premium ou experiências exclusivas).',
+        },
+        {
+          question: 'A Climate organiza eventos diretamente?',
+          answer: 'Não. A Climate é apenas a plataforma, os eventos são criados e geridos pelos próprios organizadores. O nosso papel é facilitar a ligação e dinamizar a comunidade.',
+        },
+        {
+          question: 'Que tipo de eventos encontro na Climate?',
+          answer: 'Ações de voluntariado ambiental, limpezas, plantação de árvores, workshops, talks, jornadas ecológicas, atividades de teambuilding sustentável e muito mais.',
+        },
+      ],
+    },
     footer: {
       tagline: 'Liga-te à ação que muda o planeta',
       contact: 'Contacto',
@@ -88,6 +115,7 @@ export const translations = {
       values: 'Values',
       community: 'Community',
       recognition: 'Recognition',
+      faq: 'FAQ',
     },
     hero: {
       title: 'Connect to the action that changes the planet',
@@ -152,6 +180,32 @@ export const translations = {
         { name: 'O Jornal Económico', src: '/logos/jornaleconomico.png', alt: 'O Jornal Económico' },
         { name: 'Revista Empreendedor', src: '/logos/revistaempreendedor.png', alt: 'Revista Empreendedor' },
         { name: 'Step Up to Startup', src: '/logos/stepuptostartup.png', alt: 'Step Up to Startup' },
+      ],
+    },
+    faq: {
+      title: 'Frequently Asked Questions',
+      subtitle: 'Have questions? Find the answers here',
+      questions: [
+        {
+          question: 'What is Climate?',
+          answer: 'Climate is a digital platform that connects people and organizations to real ecological events, promoting positive impact and an active community.',
+        },
+        {
+          question: 'How can I participate in events?',
+          answer: 'Simply register on the app or website, explore available events near you, and sign up with one click. It\'s simple and open to everyone.',
+        },
+        {
+          question: 'Do I have to pay to participate?',
+          answer: 'Event participation is free, unless otherwise indicated by the organizer (for example, premium workshops or exclusive experiences).',
+        },
+        {
+          question: 'Does Climate organize events directly?',
+          answer: 'No. Climate is just the platform. Events are created and managed by the organizers themselves. Our role is to facilitate connections and energize the community.',
+        },
+        {
+          question: 'What types of events can I find on Climate?',
+          answer: 'Environmental volunteer actions, cleanups, tree planting, workshops, talks, ecological days, sustainable teambuilding activities, and much more.',
+        },
       ],
     },
     footer: {

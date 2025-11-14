@@ -5,6 +5,7 @@ import ForOrganizers from '@/components/for-organizers'
 import ValueHighlights from '@/components/value-highlights'
 import Recognition from '@/components/recognition'
 import FeaturedIn from '@/components/featured-in'
+import FAQ from '@/components/faq'
 import EmailSignup from '@/components/email-signup'
 import Footer from '@/components/footer'
 
@@ -18,6 +19,7 @@ export default function Home() {
       <ValueHighlights />
       <Recognition />
       <FeaturedIn />
+      <FAQ />
       <EmailSignup />
       <Footer />
     </main>

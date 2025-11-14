@@ -8,25 +8,25 @@ export default function Footer() {
   const { t } = useLanguage()
 
   return (
-    <footer className="bg-[#191919] text-white py-16 px-4 sm:px-6">
+    <footer className="bg-[#191919] text-white py-12 sm:py-16 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
+        <div className="grid md:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
           {/* Brand */}
           <div>
-            <h3 className="text-2xl font-bold text-[#d5ffa1] mb-4">
+            <h3 className="text-xl sm:text-2xl font-bold text-[#d5ffa1] mb-3 sm:mb-4">
               Climate 🌱
             </h3>
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-400 text-sm sm:text-base">
               {t.footer.tagline}
             </p>
           </div>
 
           {/* Contact */}
           <div>
-            <h4 className="font-bold mb-4">{t.footer.contact}</h4>
+            <h4 className="font-bold mb-3 sm:mb-4 text-base sm:text-lg">{t.footer.contact}</h4>
             <div className="flex items-center gap-2">
-              <Mail size={18} className="text-[#d5ffa1]" />
-              <a href="mailto:luisferreira@climateweb.pt" className="text-sm hover:text-[#d5ffa1] transition">
+              <Mail size={18} className="text-[#d5ffa1] flex-shrink-0" />
+              <a href="mailto:luisferreira@climateweb.pt" className="text-sm sm:text-base hover:text-[#d5ffa1] transition break-all">
                 luisferreira@climateweb.pt
               </a>
             </div>
