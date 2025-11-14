@@ -3,7 +3,8 @@ import Hero from '@/components/hero'
 import HowItWorks from '@/components/how-it-works'
 import ForOrganizers from '@/components/for-organizers'
 import ValueHighlights from '@/components/value-highlights'
-import Testimonials from '@/components/testimonials'
+import Recognition from '@/components/recognition'
+import FeaturedIn from '@/components/featured-in'
 import EmailSignup from '@/components/email-signup'
 import Footer from '@/components/footer'
 
@@ -15,7 +16,8 @@ export default function Home() {
       <HowItWorks />
       <ForOrganizers />
       <ValueHighlights />
-      <Testimonials />
+      <Recognition />
+      <FeaturedIn />
       <EmailSignup />
       <Footer />
     </main>

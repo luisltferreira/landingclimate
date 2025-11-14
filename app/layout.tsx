@@ -11,7 +11,7 @@ const citrineVariable = localFont({
 })
 
 export const metadata: Metadata = {
-  title: 'Climate - Liga-te à ação que muda o planeta',
+  title: 'Climate App',
   description: 'Explora eventos ambientais, inscreve-te no voluntariado e faz parte de uma comunidade que quer mudar Portugal. Transparência, impacto e ação real.',
   icons: {
     icon: [

@@ -36,8 +36,8 @@ export default function Navigation() {
             <Link href="#valores" className="text-[#191919] hover:text-[#d5ffa1] transition">
               {t.nav.values}
             </Link>
-            <Link href="#depoimentos" className="text-[#191919] hover:text-[#d5ffa1] transition">
-              {t.nav.community}
+            <Link href="#reconhecimento" className="text-[#191919] hover:text-[#d5ffa1] transition">
+              {t.nav.recognition}
             </Link>
             
             {/* Language Selector */}
@@ -87,8 +87,8 @@ export default function Navigation() {
             <Link href="#valores" className="block text-[#191919] py-2" onClick={() => setIsOpen(false)}>
               {t.nav.values}
             </Link>
-            <Link href="#depoimentos" className="block text-[#191919] py-2" onClick={() => setIsOpen(false)}>
-              {t.nav.community}
+            <Link href="#reconhecimento" className="block text-[#191919] py-2" onClick={() => setIsOpen(false)}>
+              {t.nav.recognition}
             </Link>
             
             {/* Mobile Language Selector */}

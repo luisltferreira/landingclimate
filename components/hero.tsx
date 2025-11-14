@@ -8,7 +8,16 @@ export default function Hero() {
 
   return (
     <section className="bg-white py-24 md:py-40 px-4 sm:px-6 relative overflow-hidden">
+      {/* Background Image - Very Faded */}
       <div className="absolute inset-0 pointer-events-none">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.03]"
+          style={{
+            backgroundImage: 'url(/step-up-award.jpg)',
+          }}
+        />
+        {/* Overlay to ensure text readability */}
+        <div className="absolute inset-0 bg-white/40"></div>
         <div className="absolute top-20 right-10 w-72 h-72 bg-[#d5ffa1] rounded-full opacity-5 blur-3xl animate-float"></div>
       </div>
       

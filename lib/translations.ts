@@ -7,6 +7,7 @@ export const translations = {
       forOrganizers: 'Para Organizadores',
       values: 'Valores',
       community: 'Comunidade',
+      recognition: 'Reconhecimento',
     },
     hero: {
       title: 'Liga-te à ação que muda o planeta',
@@ -49,9 +50,12 @@ export const translations = {
         description: 'Rodeado de pessoas que partilham os mesmos valores e objetivos',
       },
     },
-    testimonials: {
-      title: 'O que dizem',
-      subtitle: 'Histórias reais de quem está a fazer a diferença',
+    recognition: {
+      title: 'Reconhecidos pela Nossa Visão',
+      award: '🏆 Vencedores do Step Up to Start Up 2024',
+      description1: 'A Climate conquistou o primeiro lugar na edição inaugural do Step Up to Start Up, o programa de empreendedorismo para jovens mais reconhecido em Portugal.',
+      description2: 'Fomos selecionados entre dezenas de projetos e apresentámos a nossa missão perante um júri composto por líderes empresariais de referência. O resultado: 30.000€ de prémio e mentorship para transformar a forma como Portugal age pelo ambiente.',
+      description3: 'Este reconhecimento valida a força da nossa ideia e reforça o compromisso de criar impacto positivo, mensurável e real.',
     },
     emailSignup: {
       title: 'Quer ser o primeiro a saber?',
@@ -59,6 +63,16 @@ export const translations = {
       placeholder: 'O teu email aqui',
       button: 'Inscrever',
       success: 'Email registado com sucesso!',
+    },
+    featuredIn: {
+      title: 'Destaque em',
+      logos: [
+        { name: 'Funds People', src: '/logos/fundspeople.png', alt: 'Funds People' },
+        { name: 'Instituto Rodrigo Guimarães', src: '/logos/irg.png', alt: 'Instituto Rodrigo Guimarães' },
+        { name: 'O Jornal Económico', src: '/logos/jornaleconomico.png', alt: 'O Jornal Económico' },
+        { name: 'Revista Empreendedor', src: '/logos/revistaempreendedor.png', alt: 'Revista Empreendedor' },
+        { name: 'Step Up to Startup', src: '/logos/stepuptostartup.png', alt: 'Step Up to Startup' },
+      ],
     },
     footer: {
       tagline: 'Liga-te à ação que muda o planeta',
@@ -73,6 +87,7 @@ export const translations = {
       forOrganizers: 'For Organizers',
       values: 'Values',
       community: 'Community',
+      recognition: 'Recognition',
     },
     hero: {
       title: 'Connect to the action that changes the planet',
@@ -115,9 +130,12 @@ export const translations = {
         description: 'Surrounded by people who share the same values and goals',
       },
     },
-    testimonials: {
-      title: 'What They Say',
-      subtitle: 'Real stories from those making a difference',
+    recognition: {
+      title: 'Recognized for Our Vision',
+      award: '🏆 Winners of Step Up to Start Up 2024',
+      description1: 'Climate won first place in the inaugural edition of Step Up to Start Up, Portugal\'s most recognized entrepreneurship program for young people.',
+      description2: 'We were selected among dozens of projects and presented our mission before a jury composed of leading business leaders. The result: €30,000 prize and mentorship to transform how Portugal acts for the environment.',
+      description3: 'This recognition validates the strength of our idea and reinforces our commitment to creating positive, measurable, and real impact.',
     },
     emailSignup: {
       title: 'Want to be the first to know?',
@@ -125,6 +143,16 @@ export const translations = {
       placeholder: 'Your email here',
       button: 'Subscribe',
       success: 'Email registered successfully!',
+    },
+    featuredIn: {
+      title: 'Featured In',
+      logos: [
+        { name: 'Funds People', src: '/logos/fundspeople.png', alt: 'Funds People' },
+        { name: 'Instituto Rodrigo Guimarães', src: '/logos/irg.png', alt: 'Instituto Rodrigo Guimarães' },
+        { name: 'O Jornal Económico', src: '/logos/jornaleconomico.png', alt: 'O Jornal Económico' },
+        { name: 'Revista Empreendedor', src: '/logos/revistaempreendedor.png', alt: 'Revista Empreendedor' },
+        { name: 'Step Up to Startup', src: '/logos/stepuptostartup.png', alt: 'Step Up to Startup' },
+      ],
     },
     footer: {
       tagline: 'Connect to the action that changes the planet',
