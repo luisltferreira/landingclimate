@@ -147,47 +147,47 @@ export function MagneticCursor() {
   return (
     <>
       {/* Custom cursor dot */}
-      <div
-        ref={cursorDotRef}
-        className="fixed top-0 left-0 pointer-events-none z-[9999] will-change-transform"
-        style={{
-          transform: 'translate(0px, 0px) translate(-50%, -50%)',
-        }}
-      >
-        <div
-          ref={dotInnerRef}
-          className="w-8 h-8 rounded-full will-change-transform"
-          style={{ 
-            backgroundColor: '#82A533',
-            boxShadow: '0 0 20px rgba(130, 165, 51, 0.8), 0 0 40px rgba(130, 165, 51, 0.4)',
-            border: '2px solid rgba(130, 165, 51, 0.3)',
-            transform: 'scale(1)',
-            opacity: '0.95',
-            transition: 'transform 0.2s ease-out, opacity 0.2s ease-out'
-          }}
-        />
-      </div>
+          <div
+            ref={cursorDotRef}
+            className="fixed top-0 left-0 pointer-events-none z-[9999] will-change-transform"
+            style={{
+              transform: 'translate(0px, 0px) translate(-50%, -50%)',
+            }}
+          >
+            <div
+              ref={dotInnerRef}
+              className="w-6 h-6 rounded-full will-change-transform"
+              style={{ 
+                backgroundColor: '#82A533',
+                boxShadow: '0 0 15px rgba(130, 165, 51, 0.8), 0 0 30px rgba(130, 165, 51, 0.4)',
+                border: '2px solid rgba(130, 165, 51, 0.3)',
+                transform: 'scale(1)',
+                opacity: '0.95',
+                transition: 'transform 0.2s ease-out, opacity 0.2s ease-out'
+              }}
+            />
+          </div>
 
-      {/* Cursor ring */}
-      <div
-        ref={cursorRingRef}
-        className="fixed top-0 left-0 pointer-events-none z-[9998] will-change-transform"
-        style={{
-          transform: 'translate(0px, 0px) translate(-50%, -50%)',
-        }}
-      >
-        <div
-          ref={ringInnerRef}
-          className="w-14 h-14 rounded-full border-2 will-change-transform"
-          style={{ 
-            borderColor: '#82A533',
-            boxShadow: '0 0 15px rgba(130, 165, 51, 0.3)',
-            transform: 'scale(1)',
-            opacity: '0.5',
-            transition: 'transform 0.2s ease-out, opacity 0.2s ease-out'
-          }}
-        />
-      </div>
+          {/* Cursor ring */}
+          <div
+            ref={cursorRingRef}
+            className="fixed top-0 left-0 pointer-events-none z-[9998] will-change-transform"
+            style={{
+              transform: 'translate(0px, 0px) translate(-50%, -50%)',
+            }}
+          >
+            <div
+              ref={ringInnerRef}
+              className="w-10 h-10 rounded-full border-2 will-change-transform"
+              style={{ 
+                borderColor: '#82A533',
+                boxShadow: '0 0 12px rgba(130, 165, 51, 0.3)',
+                transform: 'scale(1)',
+                opacity: '0.5',
+                transition: 'transform 0.2s ease-out, opacity 0.2s ease-out'
+              }}
+            />
+          </div>
     </>
   )
 }
