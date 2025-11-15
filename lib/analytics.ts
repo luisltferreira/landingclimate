@@ -42,11 +42,16 @@ export const analytics = {
     trackEvent('external_link', 'outbound', url)
   },
 
-  // Language change
-  languageChange: (language: 'pt' | 'en') => {
-    trackEvent('language_change', 'preference', language)
-  },
-}
+      // Language change
+      languageChange: (language: 'pt' | 'en') => {
+        trackEvent('language_change', 'preference', language)
+      },
+
+      // Tree planting
+      treePlanted: (totalTrees: number) => {
+        trackEvent('tree_planted', 'engagement', 'digital_tree', totalTrees)
+      },
+    }
 
 // Extend Window interface for TypeScript
 declare global {

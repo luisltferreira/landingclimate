@@ -106,6 +106,10 @@ export const translations = {
       contact: 'Contacto',
       poweredBy: 'Powered by jovens para mudar Portugal 🍃',
       copyright: 'Climate Web Lda. © 2025',
+      treePlanting: {
+        title: 'Deixa a tua marca',
+        description: 'Planta uma árvore digital e faz parte do nosso bosque. Cada árvore representa um compromisso com o planeta.',
+      },
     },
   },
   en: {
@@ -213,6 +217,10 @@ export const translations = {
       contact: 'Contact',
       poweredBy: 'Powered by young people to change Portugal 🍃',
       copyright: 'Climate Web Lda. © 2025',
+      treePlanting: {
+        title: 'Leave your mark',
+        description: 'Plant a digital tree and be part of our forest. Each tree represents a commitment to the planet.',
+      },
     },
   },
 } as const

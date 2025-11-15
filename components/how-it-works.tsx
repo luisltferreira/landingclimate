@@ -27,12 +27,12 @@ const steps = [
   ]
 
   return (
-    <section id="como-funciona" className="py-16 sm:py-20 md:py-24 lg:py-32 px-4 sm:px-6 bg-gradient-to-b from-white via-white to-gray-50">
+    <section id="como-funciona" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-gradient-to-b from-white via-white to-gray-50">
       <div className="max-w-6xl mx-auto" ref={ref}>
         <h2 className={`text-3xl sm:text-4xl md:text-5xl font-bold text-[#191919] text-center mb-4 sm:mb-6 transition-all duration-700 ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           {t.howItWorks.title}
         </h2>
-        <p className={`text-center text-gray-600 text-base sm:text-lg mb-12 sm:mb-16 md:mb-20 max-w-2xl mx-auto transition-all duration-700 delay-100 px-4 ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <p className={`text-center text-gray-600 text-base sm:text-lg mb-8 sm:mb-12 max-w-2xl mx-auto transition-all duration-700 delay-100 px-4 ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           {t.howItWorks.subtitle}
         </p>
 

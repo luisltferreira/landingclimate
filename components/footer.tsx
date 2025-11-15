@@ -1,5 +1,6 @@
 'use client'
 
+import React from 'react'
 import Link from 'next/link'
 import { Mail, Instagram } from 'lucide-react'
 import { useLanguage } from '@/contexts/language-context'
@@ -9,7 +10,7 @@ export default function Footer() {
   const { t } = useLanguage()
 
   return (
-    <footer className="bg-[#191919] text-white py-12 sm:py-16 px-4 sm:px-6">
+    <footer className="relative bg-[#191919] text-white py-12 sm:py-16 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
           {/* Brand */}
@@ -27,7 +28,7 @@ export default function Footer() {
             <h4 className="font-bold mb-3 sm:mb-4 text-base sm:text-lg">{t.footer.contact}</h4>
             <div className="flex items-center gap-2">
               <Mail size={18} className="text-[#d5ffa1] flex-shrink-0" />
-              <a href="mailto:luisferreira@climateweb.pt" className="text-sm sm:text-base hover:text-[#d5ffa1] transition break-all">
+              <a href="mailto:luisferreira@climateweb.pt" className="text-sm sm:text-base hover:text-[#d5ffa1] transition break-all relative z-[15]">
                 luisferreira@climateweb.pt
               </a>
             </div>
@@ -43,7 +44,7 @@ export default function Footer() {
               target="_blank" 
               rel="noopener noreferrer"
               onClick={() => analytics.externalLink('https://www.instagram.com/climate.pt/')}
-              className="text-gray-400 hover:text-[#d5ffa1] transition"
+              className="text-gray-400 hover:text-[#d5ffa1] transition relative z-[15]"
             >
               <Instagram size={20} />
             </a>

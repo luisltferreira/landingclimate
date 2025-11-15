@@ -10,7 +10,7 @@ export default function ForOrganizers() {
   const { ref, isRevealed } = useScrollReveal()
 
   return (
-    <section id="organizadores" className="py-24 md:py-32 px-4 sm:px-6 bg-gray-50">
+    <section id="organizadores" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-gray-50">
       <div className="max-w-5xl mx-auto" ref={ref}>
         <div className={`bg-white rounded-2xl p-6 sm:p-8 md:p-12 lg:p-16 shadow-sm border border-gray-100 transition-all duration-700 hover-lift hover:shadow-xl hover:border-[#d5ffa1]/30 group ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           {/* Header */}

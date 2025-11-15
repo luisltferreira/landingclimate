@@ -10,7 +10,7 @@ export default function Hero() {
   const { t } = useLanguage()
 
   return (
-    <section className="bg-gradient-to-b from-white via-gray-50/30 to-white py-24 md:py-40 px-4 sm:px-6 relative overflow-hidden">
+    <section className="bg-gradient-to-b from-white via-gray-50/30 to-white py-16 md:py-24 px-4 sm:px-6 relative overflow-hidden">
       {/* Animated Gradient */}
       <AnimatedGradient />
       
@@ -35,7 +35,7 @@ export default function Hero() {
           {t.hero.title}
         </h1>
 
-        <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in-up delay-100 px-4">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed animate-fade-in-up delay-100 px-4">
           {t.hero.description}
         </p>
 
@@ -50,7 +50,7 @@ export default function Hero() {
           <div className="absolute inset-0 bg-[#d5ffa1] rounded-lg opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300"></div>
         </MagneticButton>
 
-        <div className="mt-20 md:mt-32 w-full h-1 bg-gradient-to-r from-transparent via-[#d5ffa1] to-transparent opacity-30 animate-pulse-gentle"></div>
+            <div className="mt-12 md:mt-16 w-full h-1 bg-gradient-to-r from-transparent via-[#d5ffa1] to-transparent opacity-30 animate-pulse-gentle"></div>
       </div>
     </section>
   )

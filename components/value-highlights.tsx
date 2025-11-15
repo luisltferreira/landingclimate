@@ -27,9 +27,9 @@ const values = [
 ]
 
   return (
-    <section id="valores" className="py-16 sm:py-20 md:py-24 lg:py-32 px-4 sm:px-6 bg-white">
+    <section id="valores" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-white">
       <div className="max-w-6xl mx-auto" ref={ref}>
-        <h2 className={`text-3xl sm:text-4xl md:text-5xl font-bold text-[#191919] text-center mb-12 sm:mb-16 md:mb-20 transition-all duration-700 ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <h2 className={`text-3xl sm:text-4xl md:text-5xl font-bold text-[#191919] text-center mb-8 sm:mb-12 transition-all duration-700 ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           {t.values.title}
         </h2>
 

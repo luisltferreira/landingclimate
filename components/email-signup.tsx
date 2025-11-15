@@ -49,7 +49,7 @@ export default function EmailSignup() {
   }
 
   return (
-    <section id="formulario" className="py-20 md:py-28 px-4 sm:px-6 bg-white relative overflow-hidden">
+    <section id="formulario" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-white relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#d5ffa1] rounded-full opacity-5 blur-3xl animate-float"></div>
         <div className="absolute top-0 right-0 w-72 h-72 bg-[#d5ffa1] rounded-full opacity-3 blur-3xl animate-float" style={{ animationDelay: '1.5s' }}></div>

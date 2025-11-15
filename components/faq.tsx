@@ -12,9 +12,9 @@ export default function FAQ() {
   const { ref, isRevealed } = useScrollReveal()
 
   return (
-    <section id="faq" className="py-20 md:py-28 px-4 sm:px-6 bg-white">
+    <section id="faq" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-white">
       <div className="max-w-4xl mx-auto" ref={ref}>
-        <div className={`text-center mb-16 transition-all duration-700 ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <div className={`text-center mb-10 sm:mb-12 transition-all duration-700 ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <h2 className="text-4xl md:text-5xl font-bold text-[#191919] mb-4">
             {t.faq.title}
           </h2>

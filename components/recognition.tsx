@@ -9,7 +9,7 @@ export default function Recognition() {
   const { ref, isRevealed } = useScrollReveal()
 
   return (
-    <section id="reconhecimento" className="py-20 md:py-28 px-4 sm:px-6 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+    <section id="reconhecimento" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
       {/* Background Image - Faded */}
       <div className="absolute inset-0 pointer-events-none">
         <div 

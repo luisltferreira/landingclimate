@@ -10,7 +10,7 @@ export default function FeaturedIn() {
   const { ref, isRevealed } = useScrollReveal()
 
   return (
-    <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-white border-y border-gray-100">
+    <section className="py-8 sm:py-12 md:py-16 px-4 sm:px-6 bg-white border-y border-gray-100">
       <div className="max-w-6xl mx-auto" ref={ref}>
         <p className={`text-center text-xs sm:text-sm font-semibold text-gray-500 uppercase tracking-wider mb-6 sm:mb-8 transition-all duration-700 ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           {t.featuredIn.title}
