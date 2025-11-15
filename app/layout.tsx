@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import './globals.css'
 import { LanguageProvider } from '@/contexts/language-context'
+import { siteConfig } from '@/lib/site-config'
+import { SchemaOrg } from '@/components/schema-org'
 
 const citrineVariable = localFont({
   src: './fonts/fonnts.com-Citrine_Variable.otf',
@@ -11,8 +13,21 @@ const citrineVariable = localFont({
 })
 
 export const metadata: Metadata = {
-  title: 'Climate App',
-  description: 'Explora eventos ambientais, inscreve-te no voluntariado e faz parte de uma comunidade que quer mudar Portugal. Transparência, impacto e ação real.',
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`,
+  },
+  description: siteConfig.description.pt,
+  keywords: siteConfig.keywords.pt,
+  authors: [{ name: siteConfig.creator }],
+  creator: siteConfig.creator,
+  publisher: siteConfig.creator,
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   viewport: {
     width: 'device-width',
     initialScale: 1,
@@ -32,6 +47,49 @@ export const metadata: Metadata = {
     apple: '/climate-logo.png',
     shortcut: '/climate-logo.png',
   },
+  openGraph: {
+    type: 'website',
+    locale: 'pt_PT',
+    alternateLocale: ['en_US'],
+    url: siteConfig.url,
+    title: siteConfig.name,
+    description: siteConfig.description.pt,
+    siteName: siteConfig.name,
+    images: [
+      {
+        url: siteConfig.ogImage,
+        width: 1200,
+        height: 630,
+        alt: siteConfig.name,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: siteConfig.name,
+    description: siteConfig.description.pt,
+    images: [siteConfig.ogImage],
+    creator: '@climate.pt',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  alternates: {
+    canonical: siteConfig.url,
+    languages: {
+      'pt-PT': siteConfig.url,
+      'en-US': `${siteConfig.url}/en`,
+    },
+  },
+  category: 'environment',
 }
 
 export default function RootLayout({
@@ -42,6 +100,7 @@ export default function RootLayout({
   return (
     <html lang="pt-PT">
       <body className={`${citrineVariable.variable} font-sans antialiased`}>
+        <SchemaOrg />
         <LanguageProvider>
         {children}
         </LanguageProvider>
