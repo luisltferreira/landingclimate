@@ -133,7 +133,21 @@
     @apply bg-white text-[#191919];
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    cursor: none; /* Hide default cursor when custom cursor is active */
+  }
+  
+  /* Hide default cursor on desktop when custom cursor is active */
+  @media (hover: hover) and (pointer: fine) {
+    body,
+    body *,
+    button,
+    a,
+    input,
+    textarea,
+    select,
+    [role="button"],
+    [onclick] {
+      cursor: none !important;
+    }
   }
   
   /* Touch-friendly elements */

@@ -33,15 +33,15 @@ export function ParticlesBackground() {
     }> = []
 
     // Create particles
-    const particleCount = window.innerWidth < 768 ? 30 : 50
+    const particleCount = window.innerWidth < 768 ? 50 : 80
     for (let i = 0; i < particleCount; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
         vx: (Math.random() - 0.5) * 0.5,
         vy: (Math.random() - 0.5) * 0.5,
-        radius: Math.random() * 2 + 1,
-        color: `rgba(213, 255, 161, ${Math.random() * 0.3 + 0.1})`,
+        radius: Math.random() * 4 + 3,
+        color: `rgba(213, 255, 161, ${Math.random() * 0.4 + 0.6})`,
       })
     }
 
@@ -79,11 +79,20 @@ export function ParticlesBackground() {
           particle.y -= (dy / distance) * force * 2
         }
 
-        // Draw particle
+        // Draw particle with glow effect
         ctx.beginPath()
         ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2)
         ctx.fillStyle = particle.color
         ctx.fill()
+        
+        // Add glow effect
+        ctx.shadowBlur = 10
+        ctx.shadowColor = 'rgba(213, 255, 161, 0.8)'
+        ctx.beginPath()
+        ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2)
+        ctx.fillStyle = particle.color
+        ctx.fill()
+        ctx.shadowBlur = 0
 
         // Connect nearby particles
         particles.slice(i + 1).forEach((otherParticle) => {
@@ -91,12 +100,13 @@ export function ParticlesBackground() {
           const dy = particle.y - otherParticle.y
           const distance = Math.sqrt(dx * dx + dy * dy)
 
-          if (distance < 120) {
+          if (distance < 150) {
             ctx.beginPath()
             ctx.moveTo(particle.x, particle.y)
             ctx.lineTo(otherParticle.x, otherParticle.y)
-            ctx.strokeStyle = `rgba(213, 255, 161, ${0.2 * (1 - distance / 120)})`
-            ctx.lineWidth = 0.5
+            const opacity = 0.6 * (1 - distance / 150)
+            ctx.strokeStyle = `rgba(213, 255, 161, ${opacity})`
+            ctx.lineWidth = 1.5
             ctx.stroke()
           }
         })
@@ -117,8 +127,8 @@ export function ParticlesBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 pointer-events-none opacity-40"
-      style={{ zIndex: 1 }}
+      className="absolute inset-0 pointer-events-none"
+      style={{ zIndex: 1, opacity: 0.85 }}
     />
   )
 }

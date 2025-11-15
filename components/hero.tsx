@@ -3,7 +3,6 @@
 import { ArrowRight } from 'lucide-react'
 import { useLanguage } from '@/contexts/language-context'
 import { analytics } from '@/lib/analytics'
-import { ParticlesBackground } from '@/components/particles-background'
 import { AnimatedGradient } from '@/components/animated-gradient'
 import { MagneticButton } from '@/components/magnetic-button'
 
@@ -12,9 +11,6 @@ export default function Hero() {
 
   return (
     <section className="bg-gradient-to-b from-white via-gray-50/30 to-white py-24 md:py-40 px-4 sm:px-6 relative overflow-hidden">
-      {/* Interactive Particles */}
-      <ParticlesBackground />
-      
       {/* Animated Gradient */}
       <AnimatedGradient />
       
