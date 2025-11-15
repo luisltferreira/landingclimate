@@ -4,6 +4,7 @@ import './globals.css'
 import { LanguageProvider } from '@/contexts/language-context'
 import { siteConfig } from '@/lib/site-config'
 import { SchemaOrg } from '@/components/schema-org'
+import { Analytics } from '@/components/analytics'
 
 const citrineVariable = localFont({
   src: './fonts/fonnts.com-Citrine_Variable.otf',
@@ -101,6 +102,7 @@ export default function RootLayout({
     <html lang="pt-PT">
       <body className={`${citrineVariable.variable} font-sans antialiased`}>
         <SchemaOrg />
+        <Analytics />
         <LanguageProvider>
         {children}
         </LanguageProvider>

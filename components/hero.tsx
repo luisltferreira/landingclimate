@@ -2,6 +2,7 @@
 
 import { ArrowRight } from 'lucide-react'
 import { useLanguage } from '@/contexts/language-context'
+import { analytics } from '@/lib/analytics'
 
 export default function Hero() {
   const { t } = useLanguage()
@@ -35,6 +36,7 @@ export default function Hero() {
 
         <a 
           href="#formulario"
+          onClick={() => analytics.ctaClick('hero')}
           className="inline-flex items-center justify-center gap-3 bg-[#d5ffa1] text-[#191919] px-6 sm:px-10 py-4 sm:py-5 font-bold text-base sm:text-lg rounded-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 animate-fade-in-up delay-200 hover:bg-green-200 relative group overflow-hidden min-h-[48px] touch-manipulation"
         >
           <span className="relative z-10">{t.hero.cta}</span>

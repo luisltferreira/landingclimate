@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 import { useState } from 'react'
 import { useLanguage } from '@/contexts/language-context'
+import { analytics } from '@/lib/analytics'
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -27,26 +28,29 @@ export default function Navigation() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex gap-8 items-center">
-            <Link href="#como-funciona" className="text-[#191919] hover:text-[#d5ffa1] transition-colors duration-300 hover:scale-105">
+            <Link href="#como-funciona" onClick={() => analytics.navClick('howItWorks')} className="text-[#191919] hover:text-[#d5ffa1] transition-colors duration-300 hover:scale-105">
               {t.nav.howItWorks}
             </Link>
-            <Link href="#organizadores" className="text-[#191919] hover:text-[#d5ffa1] transition-colors duration-300 hover:scale-105">
+            <Link href="#organizadores" onClick={() => analytics.navClick('forOrganizers')} className="text-[#191919] hover:text-[#d5ffa1] transition-colors duration-300 hover:scale-105">
               {t.nav.forOrganizers}
             </Link>
-            <Link href="#valores" className="text-[#191919] hover:text-[#d5ffa1] transition-colors duration-300 hover:scale-105">
+            <Link href="#valores" onClick={() => analytics.navClick('values')} className="text-[#191919] hover:text-[#d5ffa1] transition-colors duration-300 hover:scale-105">
               {t.nav.values}
             </Link>
-            <Link href="#reconhecimento" className="text-[#191919] hover:text-[#d5ffa1] transition-colors duration-300 hover:scale-105">
+            <Link href="#reconhecimento" onClick={() => analytics.navClick('recognition')} className="text-[#191919] hover:text-[#d5ffa1] transition-colors duration-300 hover:scale-105">
               {t.nav.recognition}
             </Link>
-            <Link href="#faq" className="text-[#191919] hover:text-[#d5ffa1] transition-colors duration-300 hover:scale-105">
+            <Link href="#faq" onClick={() => analytics.navClick('faq')} className="text-[#191919] hover:text-[#d5ffa1] transition-colors duration-300 hover:scale-105">
               {t.nav.faq}
             </Link>
             
             {/* Language Selector */}
             <div className="flex gap-2 ml-4 border-l border-gray-200 pl-4">
               <button
-                onClick={() => setLanguage('pt')}
+                onClick={() => {
+                  setLanguage('pt')
+                  analytics.languageChange('pt')
+                }}
                 className={`px-3 py-1 rounded text-sm font-medium transition ${
                   language === 'pt'
                     ? 'bg-[#d5ffa1] text-[#191919]'
@@ -56,7 +60,10 @@ export default function Navigation() {
                 PT
               </button>
               <button
-                onClick={() => setLanguage('en')}
+                onClick={() => {
+                  setLanguage('en')
+                  analytics.languageChange('en')
+                }}
                 className={`px-3 py-1 rounded text-sm font-medium transition ${
                   language === 'en'
                     ? 'bg-[#d5ffa1] text-[#191919]'
@@ -81,19 +88,19 @@ export default function Navigation() {
         {/* Mobile Menu */}
         {isOpen && (
           <div className="md:hidden pb-4 space-y-2 border-t border-gray-100 pt-4 animate-fade-in-down">
-            <Link href="#como-funciona" className="block text-[#191919] py-3 px-2 hover:text-[#d5ffa1] hover:bg-gray-50 rounded transition-colors text-base font-medium" onClick={() => setIsOpen(false)}>
+            <Link href="#como-funciona" className="block text-[#191919] py-3 px-2 hover:text-[#d5ffa1] hover:bg-gray-50 rounded transition-colors text-base font-medium" onClick={() => { setIsOpen(false); analytics.navClick('howItWorks'); }}>
               {t.nav.howItWorks}
             </Link>
-            <Link href="#organizadores" className="block text-[#191919] py-3 px-2 hover:text-[#d5ffa1] hover:bg-gray-50 rounded transition-colors text-base font-medium" onClick={() => setIsOpen(false)}>
+            <Link href="#organizadores" className="block text-[#191919] py-3 px-2 hover:text-[#d5ffa1] hover:bg-gray-50 rounded transition-colors text-base font-medium" onClick={() => { setIsOpen(false); analytics.navClick('forOrganizers'); }}>
               {t.nav.forOrganizers}
             </Link>
-            <Link href="#valores" className="block text-[#191919] py-3 px-2 hover:text-[#d5ffa1] hover:bg-gray-50 rounded transition-colors text-base font-medium" onClick={() => setIsOpen(false)}>
+            <Link href="#valores" className="block text-[#191919] py-3 px-2 hover:text-[#d5ffa1] hover:bg-gray-50 rounded transition-colors text-base font-medium" onClick={() => { setIsOpen(false); analytics.navClick('values'); }}>
               {t.nav.values}
             </Link>
-            <Link href="#reconhecimento" className="block text-[#191919] py-3 px-2 hover:text-[#d5ffa1] hover:bg-gray-50 rounded transition-colors text-base font-medium" onClick={() => setIsOpen(false)}>
+            <Link href="#reconhecimento" className="block text-[#191919] py-3 px-2 hover:text-[#d5ffa1] hover:bg-gray-50 rounded transition-colors text-base font-medium" onClick={() => { setIsOpen(false); analytics.navClick('recognition'); }}>
               {t.nav.recognition}
             </Link>
-            <Link href="#faq" className="block text-[#191919] py-3 px-2 hover:text-[#d5ffa1] hover:bg-gray-50 rounded transition-colors text-base font-medium" onClick={() => setIsOpen(false)}>
+            <Link href="#faq" className="block text-[#191919] py-3 px-2 hover:text-[#d5ffa1] hover:bg-gray-50 rounded transition-colors text-base font-medium" onClick={() => { setIsOpen(false); analytics.navClick('faq'); }}>
               {t.nav.faq}
             </Link>
             
@@ -103,6 +110,7 @@ export default function Navigation() {
                 onClick={() => {
                   setLanguage('pt')
                   setIsOpen(false)
+                  analytics.languageChange('pt')
                 }}
                 className={`px-4 py-2 rounded text-sm font-medium transition min-h-[44px] min-w-[44px] ${
                   language === 'pt'
@@ -116,6 +124,7 @@ export default function Navigation() {
                 onClick={() => {
                   setLanguage('en')
                   setIsOpen(false)
+                  analytics.languageChange('en')
                 }}
                 className={`px-4 py-2 rounded text-sm font-medium transition min-h-[44px] min-w-[44px] ${
                   language === 'en'

@@ -3,6 +3,7 @@
 import { Zap, ArrowRight } from 'lucide-react'
 import { useLanguage } from '@/contexts/language-context'
 import { useScrollReveal } from '@/hooks/use-scroll-reveal'
+import { analytics } from '@/lib/analytics'
 
 export default function ForOrganizers() {
   const { t } = useLanguage()
@@ -34,6 +35,10 @@ export default function ForOrganizers() {
             href="https://forms.gle/edfWAWpWdKYULhCm8"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => {
+              analytics.ctaClick('forOrganizers')
+              analytics.externalLink('https://forms.gle/edfWAWpWdKYULhCm8')
+            }}
             className="inline-flex items-center justify-center gap-2 bg-[#191919] text-[#d5ffa1] px-6 sm:px-8 py-3 sm:py-4 font-bold text-base sm:text-lg rounded-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 hover:bg-[#2a2a2a] relative group/btn overflow-hidden min-h-[48px] touch-manipulation w-full sm:w-auto"
           >
             <span className="relative z-10">{t.forOrganizers.cta}</span>

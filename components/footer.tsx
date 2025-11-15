@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { Mail, Instagram } from 'lucide-react'
 import { useLanguage } from '@/contexts/language-context'
+import { analytics } from '@/lib/analytics'
 
 export default function Footer() {
   const { t } = useLanguage()
@@ -41,6 +42,7 @@ export default function Footer() {
               href="https://www.instagram.com/climate.pt/" 
               target="_blank" 
               rel="noopener noreferrer"
+              onClick={() => analytics.externalLink('https://www.instagram.com/climate.pt/')}
               className="text-gray-400 hover:text-[#d5ffa1] transition"
             >
               <Instagram size={20} />

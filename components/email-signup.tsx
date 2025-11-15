@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { Mail, CheckCircle, Loader2 } from 'lucide-react'
 import { useLanguage } from '@/contexts/language-context'
 import { useScrollReveal } from '@/hooks/use-scroll-reveal'
+import { analytics } from '@/lib/analytics'
 
 export default function EmailSignup() {
   const [email, setEmail] = useState('')
@@ -35,6 +36,8 @@ export default function EmailSignup() {
 
       setSubmitted(true)
       setEmail('')
+      // Track successful email signup
+      analytics.emailSignup('form')
       setTimeout(() => {
         setSubmitted(false)
       }, 5000)

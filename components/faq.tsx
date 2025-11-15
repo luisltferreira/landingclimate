@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { ChevronDown } from 'lucide-react'
 import { useLanguage } from '@/contexts/language-context'
 import { useScrollReveal } from '@/hooks/use-scroll-reveal'
+import { analytics } from '@/lib/analytics'
 
 export default function FAQ() {
   const { t } = useLanguage()
@@ -30,7 +31,13 @@ export default function FAQ() {
               style={{ transitionDelay: `${index * 100}ms` }}
             >
               <button
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                onClick={() => {
+                  const isOpening = openIndex !== index
+                  setOpenIndex(openIndex === index ? null : index)
+                  if (isOpening) {
+                    analytics.faqOpen(faq.question)
+                  }
+                }}
                 className="w-full px-4 sm:px-6 py-4 sm:py-5 text-left flex items-center justify-between gap-4 hover:bg-gradient-to-r hover:from-[#d5ffa1]/10 hover:to-transparent transition-all duration-300 group/btn min-h-[56px] touch-manipulation"
                 aria-expanded={openIndex === index}
               >
