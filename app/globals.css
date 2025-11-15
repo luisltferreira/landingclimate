@@ -133,6 +133,7 @@
     @apply bg-white text-[#191919];
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    cursor: none; /* Hide default cursor when custom cursor is active */
   }
   
   /* Touch-friendly elements */
@@ -144,6 +145,24 @@
   button {
     -webkit-user-select: none;
     user-select: none;
+  }
+  
+  /* Magnetic hover effect */
+  .magnetic-element {
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  @media (hover: hover) and (pointer: fine) {
+    .magnetic-element:hover {
+      transform: translateY(-2px);
+    }
+  }
+  
+  /* Hide custom cursor on mobile */
+  @media (max-width: 768px) {
+    body {
+      cursor: auto;
+    }
   }
   
   h1, h2, h3, h4, h5, h6 {

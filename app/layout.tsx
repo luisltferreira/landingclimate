@@ -5,6 +5,7 @@ import { LanguageProvider } from '@/contexts/language-context'
 import { siteConfig } from '@/lib/site-config'
 import { SchemaOrg } from '@/components/schema-org'
 import { Analytics } from '@/components/analytics'
+import { MagneticCursor } from '@/components/magnetic-cursor'
 
 const citrineVariable = localFont({
   src: './fonts/fonnts.com-Citrine_Variable.otf',
@@ -103,6 +104,7 @@ export default function RootLayout({
       <body className={`${citrineVariable.variable} font-sans antialiased`}>
         <SchemaOrg />
         <Analytics />
+        <MagneticCursor />
         <LanguageProvider>
         {children}
         </LanguageProvider>

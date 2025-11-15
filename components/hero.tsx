@@ -3,12 +3,21 @@
 import { ArrowRight } from 'lucide-react'
 import { useLanguage } from '@/contexts/language-context'
 import { analytics } from '@/lib/analytics'
+import { ParticlesBackground } from '@/components/particles-background'
+import { AnimatedGradient } from '@/components/animated-gradient'
+import { MagneticButton } from '@/components/magnetic-button'
 
 export default function Hero() {
   const { t } = useLanguage()
 
   return (
     <section className="bg-gradient-to-b from-white via-gray-50/30 to-white py-24 md:py-40 px-4 sm:px-6 relative overflow-hidden">
+      {/* Interactive Particles */}
+      <ParticlesBackground />
+      
+      {/* Animated Gradient */}
+      <AnimatedGradient />
+      
       {/* Decorative Elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 right-10 w-72 h-72 bg-[#d5ffa1] rounded-full opacity-5 blur-3xl animate-float"></div>
@@ -22,7 +31,7 @@ export default function Hero() {
         backgroundSize: '40px 40px',
       }}></div>
       
-      <div className="max-w-5xl mx-auto text-center relative z-10">
+      <div className="max-w-5xl mx-auto text-center relative z-10 magnetic-element">
         {/* Accent Line */}
         <div className="w-20 h-1 bg-[#d5ffa1] mx-auto mb-8 animate-fade-in-up"></div>
         
@@ -34,16 +43,16 @@ export default function Hero() {
           {t.hero.description}
         </p>
 
-        <a 
+        <MagneticButton
           href="#formulario"
           onClick={() => analytics.ctaClick('hero')}
-          className="inline-flex items-center justify-center gap-3 bg-[#d5ffa1] text-[#191919] px-6 sm:px-10 py-4 sm:py-5 font-bold text-base sm:text-lg rounded-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 animate-fade-in-up delay-200 hover:bg-green-200 relative group overflow-hidden min-h-[48px] touch-manipulation"
+          className="inline-flex items-center justify-center gap-3 bg-[#d5ffa1] text-[#191919] px-6 sm:px-10 py-4 sm:py-5 font-bold text-base sm:text-lg rounded-lg hover:shadow-2xl transition-all duration-300 animate-fade-in-up delay-200 hover:bg-green-200 relative group overflow-hidden min-h-[48px] touch-manipulation"
         >
           <span className="relative z-10">{t.hero.cta}</span>
           <ArrowRight size={20} className="relative z-10 group-hover:translate-x-1 transition-transform duration-300" />
           <div className="absolute inset-0 bg-gradient-to-r from-green-200 to-[#d5ffa1] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           <div className="absolute inset-0 bg-[#d5ffa1] rounded-lg opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300"></div>
-        </a>
+        </MagneticButton>
 
         <div className="mt-20 md:mt-32 w-full h-1 bg-gradient-to-r from-transparent via-[#d5ffa1] to-transparent opacity-30 animate-pulse-gentle"></div>
       </div>
