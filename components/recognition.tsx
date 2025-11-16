@@ -13,7 +13,7 @@ export default function Recognition() {
       {/* Background Image - Faded */}
       <div className="absolute inset-0 pointer-events-none">
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.08] transition-opacity duration-1000"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.08] transition-opacity duration-1000 will-change-opacity"
           style={{
             backgroundImage: 'url(/step-up-award.png)',
           }}

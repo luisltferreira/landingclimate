@@ -42,11 +42,11 @@ const steps = [
             return (
               <div
                 key={index}
-                className={`flex flex-col items-center text-center p-6 sm:p-8 md:p-10 rounded-2xl border border-transparent transition-all duration-500 hover-lift hover:bg-[#d5ffa1] hover:bg-opacity-10 hover:border-[#d5ffa1] hover:border-opacity-30 group ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                className={`flex flex-col items-center text-center p-6 sm:p-8 md:p-10 rounded-2xl border border-transparent transition-all duration-500 hover-lift hover:bg-[#d5ffa1] hover:bg-opacity-10 hover:border-[#d5ffa1] hover:border-opacity-30 group will-change-transform ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
                 style={{ transitionDelay: `${index * 150}ms` }}
               >
-                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-[#d5ffa1] rounded-full flex items-center justify-center mb-4 sm:mb-6 transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-xl group-hover:shadow-[#d5ffa1]/30">
-                  <Icon size={28} className="sm:w-9 sm:h-9 text-[#191919] transition-transform duration-300 group-hover:scale-110" />
+                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-[#d5ffa1] rounded-full flex items-center justify-center mb-4 sm:mb-6 transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-xl group-hover:shadow-[#d5ffa1]/30 will-change-transform">
+                  <Icon size={28} className="sm:w-9 sm:h-9 text-[#191919] transition-transform duration-300 group-hover:scale-110 will-change-transform" />
                 </div>
 
                 <span className="text-xs sm:text-sm font-bold text-[#d5ffa1] mb-2 sm:mb-3 transition-colors duration-300 group-hover:text-[#191919]">

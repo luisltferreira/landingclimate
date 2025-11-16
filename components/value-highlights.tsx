@@ -39,11 +39,11 @@ const values = [
             return (
               <div 
                 key={index} 
-                className={`p-6 sm:p-8 md:p-10 border border-gray-100 rounded-xl transition-all duration-500 hover-lift hover:border-[#d5ffa1] hover:bg-gradient-to-br hover:from-[#d5ffa1]/5 hover:to-transparent group ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                className={`p-6 sm:p-8 md:p-10 border border-gray-100 rounded-xl transition-all duration-500 hover-lift hover:border-[#d5ffa1] hover:bg-gradient-to-br hover:from-[#d5ffa1]/5 hover:to-transparent group will-change-transform ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
                 style={{ transitionDelay: `${index * 150}ms` }}
               >
-                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-[#d5ffa1] rounded-xl flex items-center justify-center mb-4 sm:mb-6 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-lg group-hover:shadow-[#d5ffa1]/30">
-                  <Icon size={24} className="sm:w-7 sm:h-7 md:w-8 md:h-8 text-[#191919] transition-transform duration-300 group-hover:scale-110" />
+                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-[#d5ffa1] rounded-xl flex items-center justify-center mb-4 sm:mb-6 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-lg group-hover:shadow-[#d5ffa1]/30 will-change-transform">
+                  <Icon size={24} className="sm:w-7 sm:h-7 md:w-8 md:h-8 text-[#191919] transition-transform duration-300 group-hover:scale-110 will-change-transform" />
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-[#191919] mb-3 sm:mb-4">
                   {value.title}

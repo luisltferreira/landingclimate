@@ -5,13 +5,15 @@ import { LanguageProvider } from '@/contexts/language-context'
 import { siteConfig } from '@/lib/site-config'
 import { SchemaOrg } from '@/components/schema-org'
 import { Analytics } from '@/components/analytics'
-import { MagneticCursor } from '@/components/magnetic-cursor'
+import { MagneticCursorWrapper } from '@/components/magnetic-cursor-wrapper'
 
 const citrineVariable = localFont({
   src: './fonts/fonnts.com-Citrine_Variable.otf',
   variable: '--font-display',
   display: 'swap',
   fallback: ['Helvetica', 'Arial', 'sans-serif'],
+  preload: true,
+  adjustFontFallback: false,
 })
 
 export const metadata: Metadata = {
@@ -101,10 +103,25 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-PT">
+      <head>
+        {/* Preload critical font */}
+        <link
+          rel="preload"
+          href="/fonts/fonnts.com-Citrine_Variable.otf"
+          as="font"
+          type="font/otf"
+          crossOrigin="anonymous"
+        />
+        {/* Preconnect to external domains */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        {/* Viewport meta for mobile optimization */}
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover" />
+      </head>
       <body className={`${citrineVariable.variable} font-sans antialiased`}>
         <SchemaOrg />
         <Analytics />
-        <MagneticCursor />
+        <MagneticCursorWrapper />
         <LanguageProvider>
         {children}
         </LanguageProvider>

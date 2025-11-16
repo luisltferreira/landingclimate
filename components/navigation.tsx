@@ -12,7 +12,7 @@ export default function Navigation() {
   const { t, language, setLanguage } = useLanguage()
 
   return (
-    <nav className="sticky top-0 z-50 bg-white border-b border-gray-100">
+    <nav className="sticky top-0 z-50 bg-white border-b border-gray-100 safe-area-inset-top">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -77,8 +77,14 @@ export default function Navigation() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2"
-            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden p-2 min-w-[44px] min-h-[44px] flex items-center justify-center touch-manipulation active:scale-95 transition-transform duration-150"
+            onClick={() => {
+              // Haptic feedback on supported devices
+              if ('vibrate' in navigator) {
+                navigator.vibrate(10)
+              }
+              setIsOpen(!isOpen)
+            }}
             aria-label="Toggle menu"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -87,20 +93,60 @@ export default function Navigation() {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden pb-4 space-y-2 border-t border-gray-100 pt-4 animate-fade-in-down">
-            <Link href="#como-funciona" className="block text-[#191919] py-3 px-2 hover:text-[#d5ffa1] hover:bg-gray-50 rounded transition-colors text-base font-medium" onClick={() => { setIsOpen(false); analytics.navClick('howItWorks'); }}>
+          <div className="md:hidden pb-4 space-y-1 border-t border-gray-100 pt-4 animate-fade-in-down safe-area-inset-bottom">
+            <Link 
+              href="#como-funciona" 
+              className="block text-[#191919] py-4 px-4 active:bg-[#d5ffa1] active:bg-opacity-20 rounded-lg transition-colors text-base font-medium min-h-[48px] flex items-center touch-manipulation" 
+              onClick={() => { 
+                if ('vibrate' in navigator) navigator.vibrate(10)
+                setIsOpen(false)
+                analytics.navClick('howItWorks')
+              }}
+            >
               {t.nav.howItWorks}
             </Link>
-            <Link href="#organizadores" className="block text-[#191919] py-3 px-2 hover:text-[#d5ffa1] hover:bg-gray-50 rounded transition-colors text-base font-medium" onClick={() => { setIsOpen(false); analytics.navClick('forOrganizers'); }}>
+            <Link 
+              href="#organizadores" 
+              className="block text-[#191919] py-4 px-4 active:bg-[#d5ffa1] active:bg-opacity-20 rounded-lg transition-colors text-base font-medium min-h-[48px] flex items-center touch-manipulation" 
+              onClick={() => { 
+                if ('vibrate' in navigator) navigator.vibrate(10)
+                setIsOpen(false)
+                analytics.navClick('forOrganizers')
+              }}
+            >
               {t.nav.forOrganizers}
             </Link>
-            <Link href="#valores" className="block text-[#191919] py-3 px-2 hover:text-[#d5ffa1] hover:bg-gray-50 rounded transition-colors text-base font-medium" onClick={() => { setIsOpen(false); analytics.navClick('values'); }}>
+            <Link 
+              href="#valores" 
+              className="block text-[#191919] py-4 px-4 active:bg-[#d5ffa1] active:bg-opacity-20 rounded-lg transition-colors text-base font-medium min-h-[48px] flex items-center touch-manipulation" 
+              onClick={() => { 
+                if ('vibrate' in navigator) navigator.vibrate(10)
+                setIsOpen(false)
+                analytics.navClick('values')
+              }}
+            >
               {t.nav.values}
             </Link>
-            <Link href="#reconhecimento" className="block text-[#191919] py-3 px-2 hover:text-[#d5ffa1] hover:bg-gray-50 rounded transition-colors text-base font-medium" onClick={() => { setIsOpen(false); analytics.navClick('recognition'); }}>
+            <Link 
+              href="#reconhecimento" 
+              className="block text-[#191919] py-4 px-4 active:bg-[#d5ffa1] active:bg-opacity-20 rounded-lg transition-colors text-base font-medium min-h-[48px] flex items-center touch-manipulation" 
+              onClick={() => { 
+                if ('vibrate' in navigator) navigator.vibrate(10)
+                setIsOpen(false)
+                analytics.navClick('recognition')
+              }}
+            >
               {t.nav.recognition}
             </Link>
-            <Link href="#faq" className="block text-[#191919] py-3 px-2 hover:text-[#d5ffa1] hover:bg-gray-50 rounded transition-colors text-base font-medium" onClick={() => { setIsOpen(false); analytics.navClick('faq'); }}>
+            <Link 
+              href="#faq" 
+              className="block text-[#191919] py-4 px-4 active:bg-[#d5ffa1] active:bg-opacity-20 rounded-lg transition-colors text-base font-medium min-h-[48px] flex items-center touch-manipulation" 
+              onClick={() => { 
+                if ('vibrate' in navigator) navigator.vibrate(10)
+                setIsOpen(false)
+                analytics.navClick('faq')
+              }}
+            >
               {t.nav.faq}
             </Link>
             
@@ -108,28 +154,30 @@ export default function Navigation() {
             <div className="flex gap-3 pt-4 border-t border-gray-100">
               <button
                 onClick={() => {
+                  if ('vibrate' in navigator) navigator.vibrate(10)
                   setLanguage('pt')
                   setIsOpen(false)
                   analytics.languageChange('pt')
                 }}
-                className={`px-4 py-2 rounded text-sm font-medium transition min-h-[44px] min-w-[44px] ${
+                className={`px-4 py-3 rounded-lg text-sm font-medium transition min-h-[48px] min-w-[48px] flex items-center justify-center touch-manipulation active:scale-95 ${
                   language === 'pt'
                     ? 'bg-[#d5ffa1] text-[#191919]'
-                    : 'text-gray-600 hover:text-[#191919] hover:bg-gray-50'
+                    : 'text-gray-600 active:bg-gray-100'
                 }`}
               >
                 PT
               </button>
               <button
                 onClick={() => {
+                  if ('vibrate' in navigator) navigator.vibrate(10)
                   setLanguage('en')
                   setIsOpen(false)
                   analytics.languageChange('en')
                 }}
-                className={`px-4 py-2 rounded text-sm font-medium transition min-h-[44px] min-w-[44px] ${
+                className={`px-4 py-3 rounded-lg text-sm font-medium transition min-h-[48px] min-w-[48px] flex items-center justify-center touch-manipulation active:scale-95 ${
                   language === 'en'
                     ? 'bg-[#d5ffa1] text-[#191919]'
-                    : 'text-gray-600 hover:text-[#191919] hover:bg-gray-50'
+                    : 'text-gray-600 active:bg-gray-100'
                 }`}
               >
                 EN

@@ -79,6 +79,8 @@ export default function EmailSignup() {
               <div className="flex-1">
                 <input
                   type="email"
+                  inputMode="email"
+                  autoComplete="email"
                   placeholder={t.emailSignup.placeholder}
                   value={email}
                   onChange={(e) => {
@@ -87,7 +89,7 @@ export default function EmailSignup() {
                   }}
                   required
                   disabled={loading}
-                  className="w-full px-4 sm:px-6 py-3 sm:py-4 rounded-lg border-2 border-[#191919] text-[#191919] placeholder-gray-500 focus:outline-none focus:border-[#191919] focus:shadow-lg focus:scale-[1.02] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed text-base min-h-[48px] touch-manipulation"
+                  className="w-full px-4 sm:px-6 py-4 sm:py-4 rounded-lg border-2 border-[#191919] text-[#191919] placeholder-gray-500 focus:outline-none focus:border-[#191919] focus:shadow-lg focus:ring-2 focus:ring-[#d5ffa1] focus:ring-offset-2 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed text-base min-h-[52px] touch-manipulation"
                 />
                 {error && (
                   <p className="mt-2 text-sm text-red-600 text-left">{error}</p>
@@ -96,7 +98,13 @@ export default function EmailSignup() {
               <button
                 type="submit"
                 disabled={loading}
-                className="bg-[#191919] text-[#d5ffa1] px-6 sm:px-8 py-3 sm:py-4 font-bold rounded-lg hover:shadow-2xl hover:scale-105 hover:bg-[#2a2a2a] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2 relative overflow-hidden group/btn min-h-[48px] touch-manipulation text-base sm:text-lg"
+                className="bg-[#191919] text-[#d5ffa1] px-6 sm:px-8 py-4 sm:py-4 font-bold rounded-lg hover:shadow-2xl active:scale-95 hover:scale-105 hover:bg-[#2a2a2a] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:active:scale-100 flex items-center justify-center gap-2 relative overflow-hidden group/btn min-h-[52px] touch-manipulation text-base sm:text-lg"
+                onClick={() => {
+                  // Haptic feedback on supported devices
+                  if ('vibrate' in navigator && !loading) {
+                    navigator.vibrate(10)
+                  }
+                }}
               >
                 {loading ? (
                   <>

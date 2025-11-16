@@ -36,10 +36,11 @@ export default function ForOrganizers() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => {
+              if ('vibrate' in navigator) navigator.vibrate(10)
               analytics.ctaClick('forOrganizers')
               analytics.externalLink('https://forms.gle/edfWAWpWdKYULhCm8')
             }}
-            className="inline-flex items-center justify-center gap-2 bg-[#191919] text-[#d5ffa1] px-6 sm:px-8 py-3 sm:py-4 font-bold text-base sm:text-lg rounded-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 hover:bg-[#2a2a2a] relative group/btn overflow-hidden min-h-[48px] touch-manipulation w-full sm:w-auto"
+            className="inline-flex items-center justify-center gap-2 bg-[#191919] text-[#d5ffa1] px-6 sm:px-8 py-4 sm:py-4 font-bold text-base sm:text-lg rounded-lg hover:shadow-2xl active:scale-95 hover:scale-105 transition-all duration-300 hover:bg-[#2a2a2a] relative group/btn overflow-hidden min-h-[52px] touch-manipulation w-full sm:w-auto"
           >
             <span className="relative z-10">{t.forOrganizers.cta}</span>
             <ArrowRight size={20} className="relative z-10 transition-transform duration-300 group-hover/btn:translate-x-1" />
