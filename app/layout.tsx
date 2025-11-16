@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { headers } from 'next/headers'
 import localFont from 'next/font/local'
 import './globals.css'
 import { LanguageProvider } from '@/contexts/language-context'
@@ -96,13 +97,23 @@ export const metadata: Metadata = {
   category: 'environment',
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  // Detectar idioma baseado no domínio no servidor
+  const headersList = await headers()
+  const hostname = headersList.get('host') || ''
+  
+  // Determinar idioma baseado no domínio
+  let htmlLang = 'pt-PT'
+  if (hostname.includes('.eu')) {
+    htmlLang = 'en-US'
+  }
+  
   return (
-    <html lang="pt-PT">
+    <html lang={htmlLang}>
       <head>
         {/* Preload critical font */}
         <link
