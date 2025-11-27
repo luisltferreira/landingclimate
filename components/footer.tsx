@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Mail, Instagram } from 'lucide-react'
 import { useLanguage } from '@/contexts/language-context'
 import { analytics } from '@/lib/analytics'
@@ -15,9 +16,17 @@ export default function Footer() {
         <div className="grid md:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
           {/* Brand */}
           <div>
-            <h3 className="text-xl sm:text-2xl font-bold text-[#d5ffa1] mb-3 sm:mb-4">
-              Climate
-            </h3>
+            <Link href="#" className="flex items-center mb-3 sm:mb-4 transition-opacity duration-300 hover:opacity-80">
+              <Image 
+                src="/climate.png" 
+                alt="Climate logo" 
+                width={2012} 
+                height={460}
+                className="h-6 sm:h-7 w-auto object-contain max-w-[120px] sm:max-w-[140px]"
+                style={{ backgroundColor: 'transparent' }}
+                priority
+              />
+            </Link>
             <p className="text-gray-400 text-sm sm:text-base">
               {t.footer.tagline}
             </p>
