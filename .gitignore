@@ -48,7 +48,3 @@ next-env.d.ts
 .DS_Store
 Thumbs.db
 
-# Large video files
-public/videos/hero-background.mp4
-public/videos/hero-background.webm
-
