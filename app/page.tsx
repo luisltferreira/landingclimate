@@ -17,22 +17,20 @@ const EmailSignup = dynamic(() => import('@/components/email-signup'), {
   loading: () => <div className="py-12 sm:py-16 md:py-20" />,
 })
 const Footer = dynamic(() => import('@/components/footer'))
-import { MobileBottomNavWrapper } from '@/components/mobile-bottom-nav-wrapper'
 
 export default function Home() {
   return (
-    <main className="bg-white pb-16 md:pb-0">
+    <main className="bg-[#191919]">
       <Navigation />
       <Hero />
       <HowItWorks />
       <ForOrganizers />
       <ValueHighlights />
       <Recognition />
-      <FeaturedIn />
       <FAQ />
       <EmailSignup />
+      <FeaturedIn />
       <Footer />
-      <MobileBottomNavWrapper />
     </main>
   )
 }

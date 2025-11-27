@@ -10,13 +10,13 @@ export default function Footer() {
   const { t } = useLanguage()
 
   return (
-    <footer className="relative bg-[#191919] text-white py-12 sm:py-16 px-4 sm:px-6">
+    <footer className="relative bg-[#191919] text-white py-12 sm:py-16 px-4 sm:px-6 border-t border-gray-700">
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
           {/* Brand */}
           <div>
             <h3 className="text-xl sm:text-2xl font-bold text-[#d5ffa1] mb-3 sm:mb-4">
-              Climate 🌱
+              Climate
             </h3>
             <p className="text-gray-400 text-sm sm:text-base">
               {t.footer.tagline}

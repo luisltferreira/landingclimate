@@ -26,7 +26,7 @@ export function MobileBottomNav() {
   }
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white border-t border-gray-200 safe-area-inset-bottom">
+    <nav className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-[#191919] border-t border-gray-700 safe-area-inset-bottom">
       <div className="flex items-center justify-around h-16 px-2">
         {navItems.map((item) => {
           const Icon = item.icon
@@ -37,8 +37,8 @@ export function MobileBottomNav() {
               onClick={() => handleClick(item.analytics)}
               className="flex flex-col items-center justify-center gap-1 flex-1 min-h-[64px] touch-manipulation active:scale-95 transition-transform duration-150"
             >
-              <Icon size={20} className="text-[#191919] transition-colors duration-200" />
-              <span className="text-[10px] font-medium text-[#191919] leading-tight text-center max-w-[60px] truncate">
+              <Icon size={20} className="text-gray-400 hover:text-[#d5ffa1] transition-colors duration-200" />
+              <span className="text-[10px] font-medium text-gray-400 hover:text-[#d5ffa1] leading-tight text-center max-w-[60px] truncate transition-colors duration-200">
                 {item.label}
               </span>
             </Link>

@@ -49,16 +49,11 @@ export default function EmailSignup() {
   }
 
   return (
-    <section id="formulario" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-white relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#d5ffa1] rounded-full opacity-5 blur-3xl animate-float"></div>
-        <div className="absolute top-0 right-0 w-72 h-72 bg-[#d5ffa1] rounded-full opacity-3 blur-3xl animate-float" style={{ animationDelay: '1.5s' }}></div>
-      </div>
-      
+    <section id="formulario" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-[#d5ffa1] relative overflow-hidden">
       <div className="max-w-2xl mx-auto relative z-10" ref={ref}>
-        <div className={`bg-gradient-to-br from-[#d5ffa1] to-green-100 rounded-2xl p-6 sm:p-8 md:p-12 lg:p-16 text-center shadow-lg transition-all duration-700 hover-lift hover:shadow-2xl hover:border-2 hover:border-[#d5ffa1]/50 group ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-lg">
-            <Mail className="w-6 h-6 sm:w-8 sm:h-8 text-[#191919] animate-float" />
+        <div className={`text-center transition-all duration-700 group ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <div className="w-12 h-12 sm:w-16 sm:h-16 bg-[#191919] rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-lg">
+            <Mail className="w-6 h-6 sm:w-8 sm:h-8 text-[#d5ffa1] animate-float" />
           </div>
           
           <h2 className={`text-2xl sm:text-3xl md:text-4xl font-bold text-[#191919] mb-3 sm:mb-4 transition-all duration-700 delay-100 ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
@@ -89,7 +84,7 @@ export default function EmailSignup() {
                   }}
                   required
                   disabled={loading}
-                  className="w-full px-4 sm:px-6 py-4 sm:py-4 rounded-lg border-2 border-[#191919] text-[#191919] placeholder-gray-500 focus:outline-none focus:border-[#191919] focus:shadow-lg focus:ring-2 focus:ring-[#d5ffa1] focus:ring-offset-2 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed text-base min-h-[52px] touch-manipulation"
+                  className="w-full px-4 sm:px-6 py-4 sm:py-4 rounded-lg border-2 border-[#191919] text-[#191919] placeholder-gray-500 focus:outline-none focus:border-[#191919] focus:shadow-lg focus:ring-2 focus:ring-[#191919] focus:ring-offset-2 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed text-base min-h-[52px] touch-manipulation"
                 />
                 {error && (
                   <p className="mt-2 text-sm text-red-600 text-left">{error}</p>

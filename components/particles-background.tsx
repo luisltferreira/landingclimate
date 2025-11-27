@@ -68,8 +68,8 @@ export function ParticlesBackground() {
     const handleMouseMove = (e: MouseEvent) => {
       const now = Date.now()
       if (now - lastMouseUpdate > 16) { // ~60fps
-        mouseX = e.clientX
-        mouseY = e.clientY
+      mouseX = e.clientX
+      mouseY = e.clientY
         lastMouseUpdate = now
       }
     }
@@ -96,7 +96,7 @@ export function ParticlesBackground() {
 
       // Batch drawing operations
       ctx.save()
-      
+
       particles.forEach((particle, i) => {
         // Update position
         particle.x += particle.vx

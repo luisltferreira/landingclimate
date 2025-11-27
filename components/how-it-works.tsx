@@ -27,12 +27,12 @@ const steps = [
   ]
 
   return (
-    <section id="como-funciona" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-gradient-to-b from-white via-white to-gray-50">
+    <section id="como-funciona" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-[#191919]">
       <div className="max-w-6xl mx-auto" ref={ref}>
-        <h2 className={`text-3xl sm:text-4xl md:text-5xl font-bold text-[#191919] text-center mb-4 sm:mb-6 transition-all duration-700 ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <h2 className={`text-3xl sm:text-4xl md:text-5xl font-bold text-white text-center mb-4 sm:mb-6 transition-all duration-700 ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           {t.howItWorks.title}
         </h2>
-        <p className={`text-center text-gray-600 text-base sm:text-lg mb-8 sm:mb-12 max-w-2xl mx-auto transition-all duration-700 delay-100 px-4 ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <p className={`text-center text-gray-300 text-base sm:text-lg mb-8 sm:mb-12 max-w-2xl mx-auto transition-all duration-700 delay-100 px-4 ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           {t.howItWorks.subtitle}
         </p>
 
@@ -53,11 +53,11 @@ const steps = [
                   {language === 'pt' ? `Passo ${index + 1}` : `Step ${index + 1}`}
                 </span>
 
-                <h3 className="text-xl sm:text-2xl font-bold text-[#191919] mb-3 sm:mb-4">
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4 transition-colors duration-300 group-hover:text-[#191919]">
                   {step.title}
                 </h3>
 
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed transition-colors duration-300 group-hover:text-gray-800">
+                <p className="text-sm sm:text-base text-gray-300 leading-relaxed transition-colors duration-300 group-hover:text-[#191919]">
                   {step.description}
                 </p>
               </div>

@@ -12,6 +12,8 @@ export const translations = {
     },
     hero: {
       title: 'Liga-te à ação que muda o planeta',
+      titleBreak: 'Liga-te à ação que',
+      titleBreak2: 'muda o planeta',
       description: 'Descobre eventos ambientais perto de ti, inscreve-te no voluntariado e faz parte de uma comunidade que quer mudar Portugal.',
       cta: 'Quero saber mais',
     },
@@ -50,29 +52,37 @@ export const translations = {
         title: 'Comunidade Jovem',
         description: 'Rodeado de pessoas que partilham os mesmos valores e objetivos',
       },
+      action: {
+        title: 'Ação real',
+        description: 'Eventos práticos, no terreno, com resultados que se veem e se sentem.',
+      },
+      simplicity: {
+        title: 'Simplicidade',
+        description: 'Encontrar, escolher e participar em eventos ecológicos em poucos cliques, sem burocracias.',
+      },
+      credibility: {
+        title: 'Credibilidade',
+        description: 'Parcerias com organizações e projetos validados, para que saibas sempre onde estás a pôr a tua energia.',
+      },
     },
     recognition: {
       title: 'Reconhecidos pela Nossa Visão',
-      award: '🏆 Vencedores do Step Up to Start Up 2024',
+      award: 'Vencedores do Step Up to Start Up 2024',
       description1: 'A Climate conquistou o primeiro lugar na edição inaugural do Step Up to Start Up, o programa de empreendedorismo para jovens mais reconhecido em Portugal.',
       description2: 'Fomos selecionados entre dezenas de projetos e apresentámos a nossa missão perante um júri composto por líderes empresariais de referência. O resultado: 30.000€ de prémio e mentorship para transformar a forma como Portugal age pelo ambiente.',
       description3: 'Este reconhecimento valida a força da nossa ideia e reforça o compromisso de criar impacto positivo, mensurável e real.',
     },
     emailSignup: {
-      title: 'Quer ser o primeiro a saber?',
-      description: 'Inscreve-te para receber atualizações sobre o lançamento e eventos exclusivos',
+      title: 'Queres ser o primeiro a saber?',
+      description: 'Inscreve-te para receberes atualizações sobre o lançamento e eventos exclusivos',
       placeholder: 'O teu email aqui',
       button: 'Inscrever',
       success: 'Email registado com sucesso!',
     },
     featuredIn: {
-      title: 'Destaque em',
+      title: 'Apoiado por',
       logos: [
-        { name: 'Funds People', src: '/logos/fundspeople.png', alt: 'Funds People' },
         { name: 'Instituto Rodrigo Guimarães', src: '/logos/irg.png', alt: 'Instituto Rodrigo Guimarães' },
-        { name: 'O Jornal Económico', src: '/logos/jornaleconomico.png', alt: 'O Jornal Económico' },
-        { name: 'Revista Empreendedor', src: '/logos/revistaempreendedor.png', alt: 'Revista Empreendedor' },
-        { name: 'Step Up to Startup', src: '/logos/stepuptostartup.png', alt: 'Step Up to Startup' },
       ],
     },
     faq: {
@@ -85,7 +95,7 @@ export const translations = {
         },
         {
           question: 'Como posso participar em eventos?',
-          answer: 'Basta registares-te na app ou site, explorares os eventos disponíveis perto de ti e inscreveres-te num clique, é simples e aberto a todos.',
+          answer: 'Basta registares-te na app ou site, explorares os eventos disponíveis perto de ti e inscreveres-te num clique. É simples e aberto a todos.',
         },
         {
           question: 'Tenho de pagar para participar?',
@@ -104,7 +114,7 @@ export const translations = {
     footer: {
       tagline: 'Liga-te à ação que muda o planeta',
       contact: 'Contacto',
-      poweredBy: 'Powered by jovens para mudar Portugal 🍃',
+      poweredBy: 'Powered by jovens para mudar Portugal',
       copyright: 'Climate Web Lda. © 2025',
       treePlanting: {
         title: 'Deixa a tua marca',
@@ -123,6 +133,8 @@ export const translations = {
     },
     hero: {
       title: 'Connect to the action that changes the planet',
+      titleBreak: 'Connect to the action that',
+      titleBreak2: 'changes the planet',
       description: 'Discover environmental events near you, sign up for volunteering and be part of a community that wants to change Portugal.',
       cta: 'I want to know more',
     },
@@ -161,10 +173,22 @@ export const translations = {
         title: 'Young Community',
         description: 'Surrounded by people who share the same values and goals',
       },
+      action: {
+        title: 'Real Action',
+        description: 'Practical events, on the ground, with results that can be seen and felt.',
+      },
+      simplicity: {
+        title: 'Simplicity',
+        description: 'Find, choose and participate in ecological events in a few clicks, without bureaucracy.',
+      },
+      credibility: {
+        title: 'Credibility',
+        description: 'Partnerships with validated organizations and projects, so you always know where you are putting your energy.',
+      },
     },
     recognition: {
       title: 'Recognized for Our Vision',
-      award: '🏆 Winners of Step Up to Start Up 2024',
+      award: 'Winners of Step Up to Start Up 2024',
       description1: 'Climate won first place in the inaugural edition of Step Up to Start Up, Portugal\'s most recognized entrepreneurship program for young people.',
       description2: 'We were selected among dozens of projects and presented our mission before a jury composed of leading business leaders. The result: €30,000 prize and mentorship to transform how Portugal acts for the environment.',
       description3: 'This recognition validates the strength of our idea and reinforces our commitment to creating positive, measurable, and real impact.',
@@ -177,13 +201,9 @@ export const translations = {
       success: 'Email registered successfully!',
     },
     featuredIn: {
-      title: 'Featured In',
+      title: 'Supported by',
       logos: [
-        { name: 'Funds People', src: '/logos/fundspeople.png', alt: 'Funds People' },
         { name: 'Instituto Rodrigo Guimarães', src: '/logos/irg.png', alt: 'Instituto Rodrigo Guimarães' },
-        { name: 'O Jornal Económico', src: '/logos/jornaleconomico.png', alt: 'O Jornal Económico' },
-        { name: 'Revista Empreendedor', src: '/logos/revistaempreendedor.png', alt: 'Revista Empreendedor' },
-        { name: 'Step Up to Startup', src: '/logos/stepuptostartup.png', alt: 'Step Up to Startup' },
       ],
     },
     faq: {
@@ -215,7 +235,7 @@ export const translations = {
     footer: {
       tagline: 'Connect to the action that changes the planet',
       contact: 'Contact',
-      poweredBy: 'Powered by young people to change Portugal 🍃',
+      poweredBy: 'Powered by young people to change Portugal',
       copyright: 'Climate Web Lda. © 2025',
       treePlanting: {
         title: 'Leave your mark',
