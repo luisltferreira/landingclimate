@@ -3,10 +3,16 @@
 import { Shield, Leaf, Heart, Target, MousePointerClick, BadgeCheck } from 'lucide-react'
 import { useLanguage } from '@/contexts/language-context'
 import { useScrollReveal } from '@/hooks/use-scroll-reveal'
+import { useState, useRef } from 'react'
 
 export default function ValueHighlights() {
   const { t } = useLanguage()
   const { ref, isRevealed } = useScrollReveal()
+  const carouselRef = useRef<HTMLDivElement>(null)
+  const [isDragging, setIsDragging] = useState(false)
+  const [startX, setStartX] = useState(0)
+  const [currentTranslate, setCurrentTranslate] = useState(0)
+  const baseTranslateRef = useRef(0)
 
 const values = [
   {
@@ -50,8 +56,68 @@ const values = [
       </div>
 
       {/* Infinite scrolling carousel */}
-      <div className="relative w-full overflow-hidden py-4">
-        <div className="flex animate-scroll-infinite">
+      <div className="relative w-full overflow-x-hidden py-4">
+        <div 
+          ref={carouselRef}
+          className={`flex ${!isDragging ? 'animate-scroll-infinite' : ''}`}
+          style={{ 
+            width: 'max-content',
+            cursor: isDragging ? 'grabbing' : 'grab',
+            userSelect: 'none',
+            WebkitUserSelect: 'none',
+            touchAction: 'pan-y pinch-zoom',
+            transform: isDragging ? `translateX(${currentTranslate}px)` : undefined,
+            transition: isDragging ? 'none' : undefined,
+          }}
+          onMouseDown={(e) => {
+            setIsDragging(true)
+            setStartX(e.pageX)
+            baseTranslateRef.current = currentTranslate
+            e.preventDefault()
+            e.stopPropagation()
+          }}
+          onMouseLeave={() => {
+            if (isDragging) {
+              setIsDragging(false)
+              setCurrentTranslate(0)
+            }
+          }}
+          onMouseUp={(e) => {
+            if (isDragging) {
+              setIsDragging(false)
+              setCurrentTranslate(0)
+            }
+            e.preventDefault()
+            e.stopPropagation()
+          }}
+          onMouseMove={(e) => {
+            if (!isDragging) return
+            e.preventDefault()
+            e.stopPropagation()
+            const diff = e.pageX - startX
+            setCurrentTranslate(baseTranslateRef.current + diff)
+          }}
+          onTouchStart={(e) => {
+            setIsDragging(true)
+            setStartX(e.touches[0].pageX)
+            baseTranslateRef.current = currentTranslate
+            e.stopPropagation()
+          }}
+          onTouchEnd={(e) => {
+            if (isDragging) {
+              setIsDragging(false)
+              setCurrentTranslate(0)
+            }
+            e.stopPropagation()
+          }}
+          onTouchMove={(e) => {
+            if (!isDragging) return
+            e.preventDefault()
+            e.stopPropagation()
+            const diff = e.touches[0].pageX - startX
+            setCurrentTranslate(baseTranslateRef.current + diff)
+          }}
+        >
           {/* First set of values */}
           {values.map((value, index) => {
             const Icon = value.icon

@@ -232,7 +232,7 @@
     }
     
     /* Reduce motion for better performance on mobile */
-    * {
+    *:not(.animate-scroll-infinite) {
       animation-duration: 0.8s !important;
       transition-duration: 0.3s !important;
     }
@@ -429,6 +429,16 @@
   }
 }
 
+/* Ensure smooth infinite scroll on mobile */
+@keyframes scrollInfiniteMobile {
+  0% {
+    transform: translateX(0) translateZ(0);
+  }
+  100% {
+    transform: translateX(-50%) translateZ(0);
+  }
+}
+
 @layer utilities {
   .animate-fade-in-up {
     animation: fadeInUp 0.6s ease-out forwards;
@@ -471,8 +481,36 @@
   }
   
   .animate-scroll-infinite {
-    animation: scrollInfinite 40s linear infinite;
+    animation: scrollInfinite 80s linear infinite;
     will-change: transform;
+    /* Force hardware acceleration */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    perspective: 1000px;
+    -webkit-perspective: 1000px;
+  }
+  
+  /* Mobile optimizations for infinite scroll - balanced speed for readability */
+  @media (max-width: 768px) {
+    .animate-scroll-infinite {
+      /* Balanced animation speed for mobile - 90 seconds for full cycle */
+      animation: scrollInfiniteMobile 90s linear infinite !important;
+      /* Optimize for mobile performance */
+      will-change: transform;
+      transform: translateZ(0);
+      -webkit-transform: translateZ(0);
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+  }
+  
+  /* Slightly slower for very small screens */
+  @media (max-width: 480px) {
+    .animate-scroll-infinite {
+      animation: scrollInfiniteMobile 100s linear infinite !important;
+    }
   }
   
   .delay-100 { animation-delay: 0.1s; }
