@@ -5,7 +5,7 @@ import { useLanguage } from '@/contexts/language-context'
 import { analytics } from '@/lib/analytics'
 import dynamic from 'next/dynamic'
 import { MagneticButton } from '@/components/magnetic-button'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 // Dynamic import for performance - only load when needed
 const AnimatedGradient = dynamic(() => import('@/components/animated-gradient').then(mod => ({ default: mod.AnimatedGradient })), {
@@ -15,6 +15,8 @@ const AnimatedGradient = dynamic(() => import('@/components/animated-gradient').
 export default function Hero() {
   const { t } = useLanguage()
   const [isMobile, setIsMobile] = useState(false)
+  const [videoLoaded, setVideoLoaded] = useState(false)
+  const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
     // Detectar se é mobile para otimizar performance
@@ -26,18 +28,47 @@ export default function Hero() {
     return () => window.removeEventListener('resize', checkMobile)
   }, [])
 
+  useEffect(() => {
+    // Lazy load video after initial render to not block page load
+    if (videoRef.current && !videoLoaded) {
+      // Use Intersection Observer to load video when it's about to be visible
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting) {
+            videoRef.current?.load()
+            setVideoLoaded(true)
+            observer.disconnect()
+          }
+        },
+        { rootMargin: '50px' }
+      )
+      observer.observe(videoRef.current)
+      return () => observer.disconnect()
+    }
+  }, [videoLoaded])
+
   return (
     <section className="min-h-[calc(100vh-4rem)] md:min-h-screen flex items-center justify-center px-4 sm:px-6 relative overflow-hidden">
       {/* Video Background */}
       <div className="absolute inset-0 w-full h-full z-0">
         <video
+          ref={videoRef}
           autoPlay
           loop
           muted
           playsInline
+          preload="metadata"
           className="absolute inset-0 w-full h-full object-cover scale-105"
           poster="/videos/hero-poster.jpg"
           style={{ filter: 'brightness(0.7) contrast(1.1) saturate(1.2)' }}
+          onCanPlay={() => {
+            // Video is ready to play
+            if (videoRef.current) {
+              videoRef.current.play().catch(() => {
+                // Ignore autoplay errors
+              })
+            }
+          }}
         >
           <source src="/videos/hero-background.mp4" type="video/mp4" />
           <source src="/videos/hero-background.webm" type="video/webm" />

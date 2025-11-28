@@ -124,6 +124,12 @@ export default async function RootLayout({
           type="font/otf"
           crossOrigin="anonymous"
         />
+        {/* Preload video poster for faster initial render */}
+        <link
+          rel="preload"
+          href="/videos/hero-poster.jpg"
+          as="image"
+        />
         {/* Preconnect to external domains */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
