@@ -1,8 +1,10 @@
 'use client'
 
-import { Trophy } from 'lucide-react'
+import { Trophy, ArrowRight } from 'lucide-react'
+import Link from 'next/link'
 import { useLanguage } from '@/contexts/language-context'
 import { useScrollReveal } from '@/hooks/use-scroll-reveal'
+import { analytics } from '@/lib/analytics'
 
 export default function Recognition() {
   const { t } = useLanguage()
@@ -53,6 +55,22 @@ export default function Recognition() {
             <p className="text-sm sm:text-base text-[#191919] leading-relaxed transition-colors duration-300 group-hover:text-[#191919] opacity-90">
               {t.recognition.description3}
             </p>
+          </div>
+
+          {/* CTA Button */}
+          <div className={`flex justify-center transition-all duration-700 delay-300 ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <Link
+              href="/quem-somos"
+              onClick={() => {
+                if ('vibrate' in navigator) navigator.vibrate(10)
+                analytics.ctaClick('recognition')
+              }}
+              className="inline-flex items-center justify-center gap-2 bg-[#191919] text-[#d5ffa1] px-6 sm:px-8 py-3 sm:py-4 font-bold text-sm sm:text-base rounded-lg hover:shadow-2xl active:scale-95 hover:scale-105 transition-all duration-300 hover:bg-[#0a0a0a] relative group/btn overflow-hidden min-h-[48px] touch-manipulation"
+            >
+              <span className="relative z-10">{t.recognition.cta}</span>
+              <ArrowRight size={18} className="relative z-10 transition-transform duration-300 group-hover/btn:translate-x-1" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#d5ffa1]/10 to-transparent opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
+            </Link>
           </div>
         </div>
         </div>

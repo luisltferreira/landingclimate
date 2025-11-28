@@ -180,6 +180,7 @@ export const translations = {
       description1: 'A Climate conquistou o primeiro lugar na edição inaugural do Step Up to Start Up, o programa de empreendedorismo para jovens mais reconhecido em Portugal.',
       description2: 'Fomos selecionados entre dezenas de projetos e apresentámos a nossa missão perante um júri composto por líderes empresariais de referência. O resultado: 30.000€ de prémio e mentorship para transformar a forma como Portugal age pelo ambiente.',
       description3: 'Este reconhecimento valida a força da nossa ideia e reforça o compromisso de criar impacto positivo, mensurável e real.',
+      cta: 'Conhece a equipa',
     },
     emailSignup: {
       title: 'Queres ser o primeiro a saber?',
@@ -410,6 +411,7 @@ export const translations = {
       description1: 'Climate won first place in the inaugural edition of Step Up to Start Up, Portugal\'s most recognized entrepreneurship program for young people.',
       description2: 'We were selected among dozens of projects and presented our mission before a jury composed of leading business leaders. The result: €30,000 prize and mentorship to transform how Portugal acts for the environment.',
       description3: 'This recognition validates the strength of our idea and reinforces our commitment to creating positive, measurable, and real impact.',
+      cta: 'Meet the team',
     },
     emailSignup: {
       title: 'Want to be the first to know?',
