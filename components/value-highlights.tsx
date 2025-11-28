@@ -58,9 +58,9 @@ const values = [
             return (
               <div 
                 key={`first-${index}`}
-                className="flex-shrink-0 w-[300px] sm:w-[350px] md:w-[400px] px-4"
+                className="flex-shrink-0 w-[280px] sm:w-[320px] md:w-[350px] lg:w-[400px] px-3 sm:px-4"
               >
-                <div className="p-6 sm:p-8 md:p-10 border border-[#d5ffa1]/30 rounded-xl transition-all duration-500 hover-lift hover:border-[#d5ffa1] hover:bg-gradient-to-br hover:from-[#d5ffa1]/10 hover:to-transparent group will-change-transform h-full">
+                <div className="p-5 sm:p-6 md:p-8 lg:p-10 border border-[#d5ffa1]/30 rounded-xl transition-all duration-500 hover-lift hover:border-[#d5ffa1] hover:bg-gradient-to-br hover:from-[#d5ffa1]/10 hover:to-transparent group will-change-transform h-full touch-manipulation">
                   <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-[#d5ffa1] rounded-xl flex items-center justify-center mb-4 sm:mb-6 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-lg group-hover:shadow-[#d5ffa1]/30 will-change-transform">
                     <Icon size={24} className="sm:w-7 sm:h-7 md:w-8 md:h-8 text-[#191919] transition-transform duration-300 group-hover:scale-110 will-change-transform" />
                   </div>
@@ -80,9 +80,9 @@ const values = [
             return (
               <div 
                 key={`second-${index}`}
-                className="flex-shrink-0 w-[300px] sm:w-[350px] md:w-[400px] px-4"
+                className="flex-shrink-0 w-[280px] sm:w-[320px] md:w-[350px] lg:w-[400px] px-3 sm:px-4"
               >
-                <div className="p-6 sm:p-8 md:p-10 border border-[#d5ffa1]/30 rounded-xl transition-all duration-500 hover-lift hover:border-[#d5ffa1] hover:bg-gradient-to-br hover:from-[#d5ffa1]/10 hover:to-transparent group will-change-transform h-full">
+                <div className="p-5 sm:p-6 md:p-8 lg:p-10 border border-[#d5ffa1]/30 rounded-xl transition-all duration-500 hover-lift hover:border-[#d5ffa1] hover:bg-gradient-to-br hover:from-[#d5ffa1]/10 hover:to-transparent group will-change-transform h-full touch-manipulation">
                   <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-[#d5ffa1] rounded-xl flex items-center justify-center mb-4 sm:mb-6 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-lg group-hover:shadow-[#d5ffa1]/30 will-change-transform">
                     <Icon size={24} className="sm:w-7 sm:h-7 md:w-8 md:h-8 text-[#191919] transition-transform duration-300 group-hover:scale-110 will-change-transform" />
                   </div>

@@ -8,6 +8,7 @@ import { SchemaOrg } from '@/components/schema-org'
 import { Analytics } from '@/components/analytics'
 import { MagneticCursorWrapper } from '@/components/magnetic-cursor-wrapper'
 import { PageTransition } from '@/components/page-transition'
+import { VideoLoadingScreen } from '@/components/video-loading-screen'
 
 const citrineVariable = localFont({
   src: './fonts/fonnts.com-Citrine_Variable.otf',
@@ -137,6 +138,7 @@ export default async function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover" />
       </head>
       <body className={`${citrineVariable.variable} font-sans antialiased`}>
+        <VideoLoadingScreen />
         <SchemaOrg />
         <Analytics />
         <MagneticCursorWrapper />

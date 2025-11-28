@@ -83,10 +83,10 @@ export default function Navigation() {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden pb-4 space-y-1 border-t border-[#d5ffa1]/30 pt-4 animate-fade-in-down safe-area-inset-bottom">
+          <div className="md:hidden pb-4 space-y-1 border-t border-[#d5ffa1]/30 pt-4 animate-fade-in-down safe-area-inset-bottom max-h-[calc(100vh-4rem)] overflow-y-auto">
             <Link 
               href="/quem-somos" 
-              className="block text-white py-4 px-4 active:bg-[#d5ffa1] active:bg-opacity-20 rounded-lg transition-colors text-base font-medium min-h-[48px] flex items-center touch-manipulation outline-none focus:outline-none" 
+              className="block text-white py-4 px-4 active:bg-[#d5ffa1] active:bg-opacity-20 rounded-lg transition-all duration-200 text-base font-medium min-h-[52px] flex items-center touch-manipulation outline-none focus:outline-none -mx-4 px-4" 
               onClick={() => { 
                 if ('vibrate' in navigator) navigator.vibrate(10)
                 setIsOpen(false)

@@ -6,7 +6,7 @@ import EmailSignup from '@/components/email-signup'
 import { useLanguage } from '@/contexts/language-context'
 import { Target, Eye, Users, Zap, MousePointerClick, BadgeCheck, CheckCircle2, ArrowRight, ChevronDown } from 'lucide-react'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useScrollReveal } from '@/hooks/use-scroll-reveal'
 
 function FounderCard({ founder, photoPath, index, isRevealed }: { 
@@ -56,24 +56,70 @@ export default function AboutUs() {
   const { ref: achievementsRef, isRevealed: isAchievementsRevealed } = useScrollReveal()
   const { ref: nextRef, isRevealed: isNextRevealed } = useScrollReveal()
 
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const [videoLoaded, setVideoLoaded] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    // Detectar se é mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
+  useEffect(() => {
+    // Lazy load video after initial render to not block page load
+    if (videoRef.current && !videoLoaded) {
+      // Use Intersection Observer to load video when it's about to be visible
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting) {
+            videoRef.current?.load()
+            setVideoLoaded(true)
+            observer.disconnect()
+          }
+        },
+        { rootMargin: '50px' }
+      )
+      observer.observe(videoRef.current)
+      return () => observer.disconnect()
+    }
+  }, [videoLoaded])
+
   return (
     <main className="bg-[#191919] min-h-screen">
       <Navigation />
       
-      {/* Hero Section */}
-      <section className="min-h-[calc(100vh-4rem)] md:min-h-screen flex items-center justify-center px-4 sm:px-6 relative overflow-hidden">
+          {/* Hero Section */}
+          <section className="min-h-[calc(100vh-4rem)] md:min-h-screen flex items-center justify-center px-4 sm:px-6 relative overflow-hidden safe-area-inset-top">
         {/* Video Background */}
         <div className="absolute inset-0 w-full h-full z-0">
           <video
+            ref={videoRef}
             autoPlay
             loop
             muted
             playsInline
+            preload={isMobile ? "metadata" : "auto"}
             className="absolute inset-0 w-full h-full object-cover"
             poster="/videos/about-us-poster.jpg"
             style={{ 
-              filter: 'brightness(0.6) contrast(1.15) saturate(1.1)',
+              filter: isMobile ? 'brightness(0.5) contrast(1.2) saturate(1.1)' : 'brightness(0.6) contrast(1.15) saturate(1.1)',
               transform: 'scale(1.05)',
+            }}
+            onLoadedData={() => {
+              // Video data loaded
+              if (videoRef.current && !isMobile) {
+                videoRef.current.play().catch(() => {
+                  // Ignore autoplay errors
+                })
+              }
+            }}
+            onCanPlayThrough={() => {
+              // Video fully loaded and ready to play
             }}
           >
             <source src="/videos/about-us-background.mp4" type="video/mp4" />
@@ -82,8 +128,8 @@ export default function AboutUs() {
             <div className="absolute inset-0 bg-[#191919]"></div>
           </video>
           
-          {/* Overlay escuro gradiente para melhorar legibilidade do texto */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60"></div>
+              {/* Overlay escuro gradiente para melhorar legibilidade do texto */}
+              <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70 md:from-black/50 md:via-black/30 md:to-black/60"></div>
           
           {/* Overlay com cor da marca para manter identidade visual */}
           <div className="absolute inset-0 bg-gradient-to-br from-[#d5ffa1]/10 via-transparent to-[#d5ffa1]/15"></div>
@@ -103,17 +149,17 @@ export default function AboutUs() {
         
         <div className="max-w-4xl mx-auto relative z-10" ref={heroRef}>
           <div className={`transition-all duration-700 ${isHeroRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 sm:mb-10 text-center leading-tight drop-shadow-[0_2px_20px_rgba(0,0,0,0.8)]">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 sm:mb-8 md:mb-10 text-center leading-[1.1] sm:leading-tight drop-shadow-[0_2px_20px_rgba(0,0,0,0.9)] px-2">
               {t.aboutUs.title}
             </h1>
-            <div className="bg-[#191919]/70 backdrop-blur-md p-8 sm:p-10 rounded-2xl border border-[#d5ffa1]/40 shadow-2xl">
-              <p className="text-xl sm:text-2xl text-white font-medium leading-relaxed mb-6 text-center drop-shadow-[0_2px_20px_rgba(0,0,0,0.8)]">
+            <div className="bg-[#191919]/80 md:bg-[#191919]/70 backdrop-blur-md p-5 sm:p-6 md:p-8 lg:p-10 rounded-2xl border border-[#d5ffa1]/40 shadow-2xl">
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white font-medium leading-relaxed mb-4 sm:mb-5 md:mb-6 text-center drop-shadow-[0_2px_20px_rgba(0,0,0,0.8)]">
                 {t.aboutUs.intro}
               </p>
-              <p className="text-lg sm:text-xl text-white leading-relaxed mb-6 text-center drop-shadow-[0_2px_15px_rgba(0,0,0,0.7)]">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white leading-relaxed mb-4 sm:mb-5 md:mb-6 text-center drop-shadow-[0_2px_15px_rgba(0,0,0,0.7)]">
                 {t.aboutUs.objective}
               </p>
-              <p className="text-lg sm:text-xl text-[#d5ffa1] font-semibold leading-relaxed text-center drop-shadow-[0_2px_15px_rgba(0,0,0,0.7)]">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-[#d5ffa1] font-semibold leading-relaxed text-center drop-shadow-[0_2px_15px_rgba(0,0,0,0.7)]">
                 {t.aboutUs.vision}
               </p>
             </div>
@@ -121,22 +167,17 @@ export default function AboutUs() {
         </div>
         
         {/* Scroll Indicator */}
-        <div className="absolute bottom-20 sm:bottom-24 left-1/2 transform -translate-x-1/2 z-20">
-          <a 
-            href="#history" 
-            className="flex items-center justify-center w-10 h-10 rounded-full bg-white/20 backdrop-blur-md border-2 border-white/30 hover:bg-white/30 hover:border-[#d5ffa1]/60 transition-all duration-300 group shadow-lg"
-            aria-label="Scroll down"
-            onClick={(e) => {
-              e.preventDefault()
-              const historySection = document.getElementById('history')
-              if (historySection) {
-                historySection.scrollIntoView({ behavior: 'smooth' })
-              }
-            }}
-          >
-            <ChevronDown size={18} className="text-white animate-bounce group-hover:text-[#d5ffa1]" />
-          </a>
-        </div>
+        <a
+          href="#history"
+          className="absolute bottom-16 sm:bottom-20 md:bottom-24 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/20 backdrop-blur-sm border-2 border-white/30 text-white hover:text-[#d5ffa1] hover:border-[#d5ffa1] transition-all duration-300 shadow-lg touch-manipulation min-h-[44px] min-w-[44px]"
+          aria-label="Scroll down"
+          onClick={(e) => {
+            e.preventDefault();
+            document.getElementById('history')?.scrollIntoView({ behavior: 'smooth' });
+          }}
+        >
+          <ChevronDown size={18} className="animate-bounce" />
+        </a>
       </section>
 
       {/* History Section */}

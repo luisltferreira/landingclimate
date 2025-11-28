@@ -230,6 +230,31 @@
     select {
       font-size: 16px !important;
     }
+    
+    /* Reduce motion for better performance on mobile */
+    * {
+      animation-duration: 0.8s !important;
+      transition-duration: 0.3s !important;
+    }
+    
+    /* Optimize scrolling */
+    html {
+      -webkit-overflow-scrolling: touch;
+      scroll-padding-top: 80px;
+    }
+    
+    /* Better text rendering on mobile */
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeSpeed;
+    }
+    
+    /* Reduce decorative elements on mobile for performance */
+    .animate-float,
+    .animate-pulse-gentle {
+      animation-duration: 2s !important;
+    }
   }
   
   /* Magnetic hover effect */

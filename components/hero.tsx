@@ -48,7 +48,7 @@ export default function Hero() {
   }, [videoLoaded])
 
   return (
-    <section className="min-h-[calc(100vh-4rem)] md:min-h-screen flex items-center justify-center px-4 sm:px-6 relative overflow-hidden">
+    <section className="min-h-[calc(100vh-4rem)] md:min-h-screen flex items-center justify-center px-4 sm:px-6 relative overflow-hidden safe-area-inset-top">
       {/* Video Background */}
       <div className="absolute inset-0 w-full h-full z-0">
         <video
@@ -57,17 +57,22 @@ export default function Hero() {
           loop
           muted
           playsInline
-          preload="metadata"
+          preload={isMobile ? "metadata" : "auto"}
           className="absolute inset-0 w-full h-full object-cover scale-105"
           poster="/videos/hero-poster.jpg"
-          style={{ filter: 'brightness(0.7) contrast(1.1) saturate(1.2)' }}
-          onCanPlay={() => {
-            // Video is ready to play
-            if (videoRef.current) {
+          style={{ 
+            filter: isMobile ? 'brightness(0.6) contrast(1.2) saturate(1.1)' : 'brightness(0.7) contrast(1.1) saturate(1.2)'
+          }}
+          onLoadedData={() => {
+            // Video data loaded
+            if (videoRef.current && !isMobile) {
               videoRef.current.play().catch(() => {
                 // Ignore autoplay errors
               })
             }
+          }}
+          onCanPlayThrough={() => {
+            // Video fully loaded and ready to play
           }}
         >
           <source src="/videos/hero-background.mp4" type="video/mp4" />
@@ -77,7 +82,7 @@ export default function Hero() {
         </video>
         
         {/* Overlay escuro gradiente para melhorar legibilidade do texto */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/25 to-black/50"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/35 to-black/60 md:from-black/40 md:via-black/25 md:to-black/50"></div>
         
         {/* Overlay com cor da marca para manter identidade visual */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#d5ffa1]/15 via-transparent to-[#d5ffa1]/20"></div>
@@ -95,11 +100,11 @@ export default function Hero() {
         <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-[#d5ffa1] rounded-full opacity-6 blur-3xl animate-float mix-blend-soft-light" style={{ animationDelay: '2s' }}></div>
       </div>
       
-      <div className="max-w-5xl mx-auto text-center relative z-10 magnetic-element w-full flex flex-col items-center">
+      <div className="max-w-5xl mx-auto text-center relative z-10 magnetic-element w-full flex flex-col items-center px-2">
         {/* Accent Line */}
-        <div className="w-20 h-1 mx-auto mb-8 animate-fade-in-up bg-[#d5ffa1] shadow-[0_0_20px_rgba(213,255,161,0.6)]"></div>
+        <div className="w-16 h-0.5 sm:w-20 sm:h-1 mx-auto mb-6 sm:mb-8 animate-fade-in-up bg-[#d5ffa1] shadow-[0_0_20px_rgba(213,255,161,0.6)]"></div>
         
-        <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 leading-tight animate-fade-in-up px-2 text-center mx-auto text-white drop-shadow-[0_2px_20px_rgba(0,0,0,0.8)]`}>
+        <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 md:mb-8 leading-[1.1] sm:leading-tight animate-fade-in-up px-2 text-center mx-auto text-white drop-shadow-[0_2px_20px_rgba(0,0,0,0.9)]`}>
           {t.hero.titleBreak && t.hero.titleBreak2 ? (
             <>
               {t.hero.titleBreak} <br /> {t.hero.titleBreak2}
@@ -109,7 +114,7 @@ export default function Hero() {
           )}
         </h1>
 
-        <p className={`text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed animate-fade-in-up delay-100 px-4 text-center text-gray-50 drop-shadow-[0_2px_15px_rgba(0,0,0,0.6)]`}>
+        <p className={`text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl mb-5 sm:mb-6 md:mb-8 max-w-3xl mx-auto leading-relaxed animate-fade-in-up delay-100 px-2 sm:px-4 text-center text-gray-50 drop-shadow-[0_2px_15px_rgba(0,0,0,0.7)]`}>
           {t.hero.description}
         </p>
 
@@ -120,7 +125,7 @@ export default function Hero() {
               if ('vibrate' in navigator) navigator.vibrate(10)
               analytics.ctaClick('hero')
             }}
-            className="inline-flex items-center justify-center gap-3 bg-[#d5ffa1] text-[#191919] px-6 sm:px-10 py-4 sm:py-5 font-bold text-base sm:text-lg rounded-lg hover:shadow-2xl active:scale-95 transition-all duration-300 animate-fade-in-up delay-200 hover:bg-green-200 relative group overflow-hidden min-h-[52px] touch-manipulation"
+            className="inline-flex items-center justify-center gap-2 sm:gap-3 bg-[#d5ffa1] text-[#191919] px-6 sm:px-8 md:px-10 py-3.5 sm:py-4 md:py-5 font-bold text-sm sm:text-base md:text-lg rounded-lg hover:shadow-2xl active:scale-95 transition-all duration-300 animate-fade-in-up delay-200 hover:bg-green-200 relative group overflow-hidden min-h-[48px] sm:min-h-[52px] touch-manipulation w-full sm:w-auto"
           >
             <span className="relative z-10">{t.hero.cta}</span>
             <ArrowRight size={20} className="relative z-10 group-hover:translate-x-1 transition-transform duration-300" />
@@ -129,19 +134,21 @@ export default function Hero() {
           </MagneticButton>
         </div>
 
-        <div className="mt-12 md:mt-16 w-full h-1 bg-gradient-to-r from-transparent via-[#d5ffa1] to-transparent animate-pulse-gentle opacity-50 shadow-[0_0_15px_rgba(213,255,161,0.4)]"></div>
+        <div className="mt-8 sm:mt-12 md:mt-16 w-full h-0.5 sm:h-1 bg-gradient-to-r from-transparent via-[#d5ffa1] to-transparent animate-pulse-gentle opacity-50 shadow-[0_0_15px_rgba(213,255,161,0.4)]"></div>
       </div>
       
       {/* Scroll Indicator */}
-      <div className="absolute bottom-20 sm:bottom-24 left-1/2 transform -translate-x-1/2 z-20">
-        <a 
-          href="#como-funciona" 
-          className="flex items-center justify-center w-10 h-10 rounded-full bg-white/20 backdrop-blur-md border-2 border-white/30 hover:bg-white/30 hover:border-[#d5ffa1]/60 transition-all duration-300 group shadow-lg"
-          aria-label="Scroll down"
-        >
-          <ChevronDown size={18} className="text-white animate-bounce group-hover:text-[#d5ffa1]" />
-        </a>
-      </div>
+      <a
+        href="#como-funciona"
+        className="absolute bottom-16 sm:bottom-20 md:bottom-24 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/20 backdrop-blur-sm border-2 border-white/30 text-white hover:text-[#d5ffa1] hover:border-[#d5ffa1] transition-all duration-300 shadow-lg touch-manipulation min-h-[44px] min-w-[44px]"
+        aria-label="Scroll down"
+        onClick={(e) => {
+          e.preventDefault();
+          document.getElementById('como-funciona')?.scrollIntoView({ behavior: 'smooth' });
+        }}
+      >
+        <ChevronDown size={18} className="animate-bounce" />
+      </a>
     </section>
   )
 }

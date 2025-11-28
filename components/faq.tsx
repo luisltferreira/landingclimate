@@ -37,8 +37,11 @@ export default function FAQ() {
                   if (isOpening) {
                     analytics.faqOpen(faq.question)
                   }
+                  if ('vibrate' in navigator) {
+                    navigator.vibrate(10)
+                  }
                 }}
-                className="w-full px-4 sm:px-6 py-4 sm:py-5 text-left flex items-center justify-between gap-4 hover:bg-gradient-to-r hover:from-[#d5ffa1]/10 hover:to-transparent transition-all duration-300 group/btn min-h-[56px] touch-manipulation"
+                className="w-full px-4 sm:px-6 py-4 sm:py-5 text-left flex items-center justify-between gap-4 hover:bg-gradient-to-r hover:from-[#d5ffa1]/10 hover:to-transparent active:bg-gradient-to-r active:from-[#d5ffa1]/20 active:to-transparent transition-all duration-300 group/btn min-h-[52px] sm:min-h-[56px] touch-manipulation"
                 aria-expanded={openIndex === index}
               >
                 <span className="font-bold text-base sm:text-lg text-white pr-2">
