@@ -84,7 +84,7 @@ export default function EmailSignup() {
                   }}
                   required
                   disabled={loading}
-                  className="w-full px-4 sm:px-6 py-4 sm:py-4 rounded-lg border-2 border-[#191919] text-[#191919] placeholder-gray-500 focus:outline-none focus:border-[#191919] focus:shadow-lg focus:ring-2 focus:ring-[#191919] focus:ring-offset-2 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed text-base min-h-[52px] touch-manipulation"
+                  className="w-full px-4 sm:px-6 py-4 sm:py-4 rounded-lg border-2 border-[#191919] text-[#191919] placeholder-[#191919]/60 focus:outline-none focus:border-[#191919] focus:shadow-lg focus:ring-2 focus:ring-[#191919] focus:ring-offset-2 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed text-base min-h-[52px] touch-manipulation"
                 />
                 {error && (
                   <p className="mt-2 text-sm text-red-600 text-left">{error}</p>

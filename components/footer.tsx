@@ -11,12 +11,12 @@ export default function Footer() {
   const { t } = useLanguage()
 
   return (
-    <footer className="relative bg-[#191919] text-white py-12 sm:py-16 px-4 sm:px-6 border-t border-gray-700">
+    <footer className="relative bg-[#191919] text-white py-12 sm:py-16 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
           {/* Brand */}
           <div>
-            <Link href="#" className="flex items-center mb-3 sm:mb-4 transition-opacity duration-300 hover:opacity-80">
+            <Link href="/" className="flex items-center mb-3 sm:mb-4 transition-opacity duration-300 hover:opacity-80">
               <Image 
                 src="/climate.png" 
                 alt="Climate logo" 
@@ -27,7 +27,7 @@ export default function Footer() {
                 priority
               />
             </Link>
-            <p className="text-gray-400 text-sm sm:text-base">
+            <p className="text-white text-sm sm:text-base">
               {t.footer.tagline}
             </p>
           </div>
@@ -45,7 +45,7 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-gray-800 pt-8">
+        <div className="border-t border-[#d5ffa1]/30 pt-8">
           {/* Social Icons */}
           <div className="flex justify-center gap-6 mb-6">
             <a 
@@ -53,17 +53,17 @@ export default function Footer() {
               target="_blank" 
               rel="noopener noreferrer"
               onClick={() => analytics.externalLink('https://www.instagram.com/climate.pt/')}
-              className="text-gray-400 hover:text-[#d5ffa1] transition relative z-[15]"
+              className="text-white hover:text-[#d5ffa1] transition relative z-[15]"
             >
               <Instagram size={20} />
             </a>
           </div>
 
           {/* Footer Text */}
-          <p className="text-center text-gray-400 text-sm">
+          <p className="text-center text-white text-sm">
             {t.footer.poweredBy}
           </p>
-          <p className="text-center text-gray-500 text-xs mt-3">
+          <p className="text-center text-[#d5ffa1] text-xs mt-3">
             {t.footer.copyright}
           </p>
         </div>

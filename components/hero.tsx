@@ -1,6 +1,6 @@
 'use client'
 
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, ChevronDown } from 'lucide-react'
 import { useLanguage } from '@/contexts/language-context'
 import { analytics } from '@/lib/analytics'
 import dynamic from 'next/dynamic'
@@ -99,6 +99,17 @@ export default function Hero() {
         </div>
 
         <div className="mt-12 md:mt-16 w-full h-1 bg-gradient-to-r from-transparent via-[#d5ffa1] to-transparent animate-pulse-gentle opacity-50 shadow-[0_0_15px_rgba(213,255,161,0.4)]"></div>
+      </div>
+      
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-20 sm:bottom-24 left-1/2 transform -translate-x-1/2 z-20">
+        <a 
+          href="#como-funciona" 
+          className="flex items-center justify-center w-10 h-10 rounded-full bg-white/20 backdrop-blur-md border-2 border-white/30 hover:bg-white/30 hover:border-[#d5ffa1]/60 transition-all duration-300 group shadow-lg"
+          aria-label="Scroll down"
+        >
+          <ChevronDown size={18} className="text-white animate-bounce group-hover:text-[#d5ffa1]" />
+        </a>
       </div>
     </section>
   )

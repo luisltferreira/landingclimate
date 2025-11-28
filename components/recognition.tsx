@@ -21,12 +21,12 @@ export default function Recognition() {
           }}
         />
         {/* Lighter overlay to maintain text readability while showing image */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#191919]/50 via-[#191919]/30 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#191919]/20 via-[#191919]/10 to-transparent"></div>
       </div>
       
       <div className="max-w-6xl mx-auto relative z-10" ref={ref}>
         <div className="flex justify-start">
-          <div className={`bg-[#d5ffa1] rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 shadow-lg border border-[#d5ffa1] transition-all duration-700 hover-lift hover:shadow-xl hover:border-[#d5ffa1] group max-w-2xl ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <div className={`bg-[#d5ffa1]/50 backdrop-blur-md rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 shadow-lg border border-[#d5ffa1] transition-all duration-700 hover-lift hover:shadow-xl hover:border-[#d5ffa1] group max-w-2xl ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           {/* Trophy Icon */}
           <div className="flex justify-center mb-4 sm:mb-6">
             <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-[#191919] rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-xl group-hover:shadow-[#191919]/30">

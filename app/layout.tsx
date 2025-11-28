@@ -7,6 +7,7 @@ import { siteConfig } from '@/lib/site-config'
 import { SchemaOrg } from '@/components/schema-org'
 import { Analytics } from '@/components/analytics'
 import { MagneticCursorWrapper } from '@/components/magnetic-cursor-wrapper'
+import { PageTransition } from '@/components/page-transition'
 
 const citrineVariable = localFont({
   src: './fonts/fonnts.com-Citrine_Variable.otf',
@@ -134,7 +135,9 @@ export default async function RootLayout({
         <Analytics />
         <MagneticCursorWrapper />
         <LanguageProvider>
-        {children}
+          <PageTransition>
+            {children}
+          </PageTransition>
         </LanguageProvider>
       </body>
     </html>

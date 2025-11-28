@@ -32,7 +32,7 @@ const steps = [
         <h2 className={`text-3xl sm:text-4xl md:text-5xl font-bold text-white text-center mb-4 sm:mb-6 transition-all duration-700 ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           {t.howItWorks.title}
         </h2>
-        <p className={`text-center text-gray-300 text-base sm:text-lg mb-8 sm:mb-12 max-w-2xl mx-auto transition-all duration-700 delay-100 px-4 ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <p className={`text-center text-white text-base sm:text-lg mb-8 sm:mb-12 max-w-2xl mx-auto transition-all duration-700 delay-100 px-4 ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           {t.howItWorks.subtitle}
         </p>
 
@@ -57,7 +57,7 @@ const steps = [
                   {step.title}
                 </h3>
 
-                <p className="text-sm sm:text-base text-gray-300 leading-relaxed transition-colors duration-300 group-hover:text-[#191919]">
+                <p className="text-sm sm:text-base text-white leading-relaxed transition-colors duration-300 group-hover:text-[#191919]">
                   {step.description}
                 </p>
               </div>

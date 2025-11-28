@@ -121,7 +121,7 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border outline-none;
   }
   html {
     scroll-behavior: smooth;
@@ -136,6 +136,9 @@
   }
   
   /* Hide default cursor is handled by magnetic-cursor component on client side only */
+  body.custom-cursor-active * {
+    cursor: none !important;
+  }
   
   /* Touch-friendly elements */
   button, a, input, textarea, select {
@@ -146,6 +149,54 @@
   button {
     -webkit-user-select: none;
     user-select: none;
+  }
+  
+  /* Change blue outlines to green brand color */
+  *:focus,
+  *:focus-visible {
+    outline: 2px solid #d5ffa1 !important;
+    outline-offset: 2px;
+  }
+  
+  button:focus,
+  button:focus-visible,
+  a:focus,
+  a:focus-visible,
+  input:focus,
+  input:focus-visible,
+  textarea:focus,
+  textarea:focus-visible,
+  select:focus,
+  select:focus-visible {
+    outline: 2px solid #d5ffa1 !important;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px rgba(213, 255, 161, 0.2) !important;
+  }
+  
+  /* Remove tap highlight on mobile, use green instead */
+  * {
+    -webkit-tap-highlight-color: rgba(213, 255, 161, 0.3) !important;
+  }
+  
+  /* Extra rules for mobile browsers */
+  @media (max-width: 768px) {
+    button,
+    a,
+    input,
+    textarea,
+    select {
+      -webkit-tap-highlight-color: rgba(213, 255, 161, 0.3) !important;
+      -webkit-focus-ring-color: #d5ffa1 !important;
+    }
+    
+    button:focus,
+    button:active,
+    a:focus,
+    a:active {
+      outline: 2px solid #d5ffa1 !important;
+      outline-offset: 2px;
+      box-shadow: 0 0 0 2px rgba(213, 255, 161, 0.2) !important;
+    }
   }
   
   /* Safe area insets for iPhone notch/home indicator */
@@ -448,5 +499,10 @@
     );
     background-size: 1000px 100%;
     animation: shimmer 2s infinite;
+  }
+  
+  /* Page transition wrapper */
+  .page-transition-wrapper {
+    min-height: 100vh;
   }
 }

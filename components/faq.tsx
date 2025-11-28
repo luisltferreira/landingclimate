@@ -18,7 +18,7 @@ export default function FAQ() {
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             {t.faq.title}
           </h2>
-          <p className="text-lg text-gray-300 transition-all duration-700 delay-100">
+          <p className="text-lg text-white transition-all duration-700 delay-100">
             {t.faq.subtitle}
           </p>
         </div>
@@ -27,7 +27,7 @@ export default function FAQ() {
           {t.faq.questions.map((faq, index) => (
             <div
               key={index}
-              className={`border border-gray-700 rounded-xl overflow-hidden transition-all duration-500 hover-lift hover:border-[#d5ffa1] hover:shadow-xl group ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+              className={`border border-[#d5ffa1]/30 rounded-xl overflow-hidden transition-all duration-500 hover-lift hover:border-[#d5ffa1] hover:shadow-xl group ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
               <button
@@ -46,8 +46,8 @@ export default function FAQ() {
                 </span>
                 <ChevronDown
                   size={20}
-                  className={`text-gray-400 transition-all duration-300 flex-shrink-0 ${
-                    openIndex === index ? 'rotate-180 text-[#d5ffa1] scale-110' : 'group-hover/btn:text-gray-300'
+                  className={`text-[#d5ffa1] transition-all duration-300 flex-shrink-0 ${
+                    openIndex === index ? 'rotate-180 text-[#d5ffa1] scale-110' : 'group-hover/btn:text-white'
                   }`}
                 />
               </button>
@@ -56,7 +56,7 @@ export default function FAQ() {
                   openIndex === index ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
                 }`}
               >
-                <div className="px-4 sm:px-6 pb-4 sm:pb-5 text-gray-300 leading-relaxed transition-colors duration-300 group-hover:text-gray-100 text-sm sm:text-base">
+                <div className="px-4 sm:px-6 pb-4 sm:pb-5 text-white leading-relaxed transition-colors duration-300 group-hover:text-[#d5ffa1] text-sm sm:text-base">
                   {faq.answer}
                 </div>
               </div>

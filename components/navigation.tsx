@@ -12,11 +12,11 @@ export default function Navigation() {
   const { t, language, setLanguage } = useLanguage()
 
   return (
-    <nav className="sticky top-0 z-50 bg-[#191919] border-b border-gray-800 safe-area-inset-top">
+    <nav className="sticky top-0 z-50 bg-[#191919] safe-area-inset-top">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 relative">
           {/* Logo */}
-          <Link href="#" className="flex items-center transition-opacity duration-300 hover:opacity-80 z-10 -mt-1 bg-transparent">
+          <Link href="/" className="flex items-center transition-opacity duration-300 hover:opacity-80 z-10 -mt-1 bg-transparent">
             <Image 
               src="/climate.png" 
               alt="Climate logo" 
@@ -30,24 +30,12 @@ export default function Navigation() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex gap-8 items-center relative z-20">
-            <Link href="#como-funciona" onClick={() => analytics.navClick('howItWorks')} className="text-white hover:text-[#d5ffa1] transition-colors duration-300 hover:scale-105">
-              {t.nav.howItWorks}
-            </Link>
-            <Link href="#organizadores" onClick={() => analytics.navClick('forOrganizers')} className="text-white hover:text-[#d5ffa1] transition-colors duration-300 hover:scale-105">
-              {t.nav.forOrganizers}
-            </Link>
-            <Link href="#valores" onClick={() => analytics.navClick('values')} className="text-white hover:text-[#d5ffa1] transition-colors duration-300 hover:scale-105">
-              {t.nav.values}
-            </Link>
-            <Link href="#reconhecimento" onClick={() => analytics.navClick('recognition')} className="text-white hover:text-[#d5ffa1] transition-colors duration-300 hover:scale-105">
-              {t.nav.recognition}
-            </Link>
-            <Link href="#faq" onClick={() => analytics.navClick('faq')} className="text-white hover:text-[#d5ffa1] transition-colors duration-300 hover:scale-105">
-              {t.nav.faq}
+            <Link href="/quem-somos" onClick={() => analytics.navClick('aboutUs')} className="text-white hover:text-[#d5ffa1] transition-colors duration-300 hover:scale-105">
+              {t.nav.aboutUs}
             </Link>
             
             {/* Language Selector */}
-            <div className="flex gap-2 ml-4 border-l border-gray-700 pl-4">
+            <div className="flex gap-2 ml-4 border-l border-[#d5ffa1]/30 pl-4">
               <button
                 onClick={() => {
                   setLanguage('pt')
@@ -79,7 +67,7 @@ export default function Navigation() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 min-w-[44px] min-h-[44px] flex items-center justify-center touch-manipulation active:scale-95 transition-transform duration-150 absolute right-4 sm:right-6 text-white"
+            className="md:hidden p-2 min-w-[44px] min-h-[44px] flex items-center justify-center touch-manipulation active:scale-95 transition-transform duration-150 absolute right-4 sm:right-6 text-white outline-none focus:outline-none"
             onClick={() => {
               // Haptic feedback on supported devices
               if ('vibrate' in navigator) {
@@ -95,65 +83,21 @@ export default function Navigation() {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden pb-4 space-y-1 border-t border-gray-700 pt-4 animate-fade-in-down safe-area-inset-bottom">
+          <div className="md:hidden pb-4 space-y-1 border-t border-[#d5ffa1]/30 pt-4 animate-fade-in-down safe-area-inset-bottom">
             <Link 
-              href="#como-funciona" 
-              className="block text-white py-4 px-4 active:bg-[#d5ffa1] active:bg-opacity-20 rounded-lg transition-colors text-base font-medium min-h-[48px] flex items-center touch-manipulation" 
+              href="/quem-somos" 
+              className="block text-white py-4 px-4 active:bg-[#d5ffa1] active:bg-opacity-20 rounded-lg transition-colors text-base font-medium min-h-[48px] flex items-center touch-manipulation outline-none focus:outline-none" 
               onClick={() => { 
                 if ('vibrate' in navigator) navigator.vibrate(10)
                 setIsOpen(false)
-                analytics.navClick('howItWorks')
+                analytics.navClick('aboutUs')
               }}
             >
-              {t.nav.howItWorks}
-            </Link>
-            <Link 
-              href="#organizadores" 
-              className="block text-white py-4 px-4 active:bg-[#d5ffa1] active:bg-opacity-20 rounded-lg transition-colors text-base font-medium min-h-[48px] flex items-center touch-manipulation" 
-              onClick={() => { 
-                if ('vibrate' in navigator) navigator.vibrate(10)
-                setIsOpen(false)
-                analytics.navClick('forOrganizers')
-              }}
-            >
-              {t.nav.forOrganizers}
-            </Link>
-            <Link 
-              href="#valores" 
-              className="block text-white py-4 px-4 active:bg-[#d5ffa1] active:bg-opacity-20 rounded-lg transition-colors text-base font-medium min-h-[48px] flex items-center touch-manipulation" 
-              onClick={() => { 
-                if ('vibrate' in navigator) navigator.vibrate(10)
-                setIsOpen(false)
-                analytics.navClick('values')
-              }}
-            >
-              {t.nav.values}
-            </Link>
-            <Link 
-              href="#reconhecimento" 
-              className="block text-white py-4 px-4 active:bg-[#d5ffa1] active:bg-opacity-20 rounded-lg transition-colors text-base font-medium min-h-[48px] flex items-center touch-manipulation" 
-              onClick={() => { 
-                if ('vibrate' in navigator) navigator.vibrate(10)
-                setIsOpen(false)
-                analytics.navClick('recognition')
-              }}
-            >
-              {t.nav.recognition}
-            </Link>
-            <Link 
-              href="#faq" 
-              className="block text-white py-4 px-4 active:bg-[#d5ffa1] active:bg-opacity-20 rounded-lg transition-colors text-base font-medium min-h-[48px] flex items-center touch-manipulation" 
-              onClick={() => { 
-                if ('vibrate' in navigator) navigator.vibrate(10)
-                setIsOpen(false)
-                analytics.navClick('faq')
-              }}
-            >
-              {t.nav.faq}
+              {t.nav.aboutUs}
             </Link>
             
             {/* Mobile Language Selector */}
-            <div className="flex gap-3 pt-4 border-t border-gray-700">
+            <div className="flex gap-3 pt-4 border-t border-[#d5ffa1]/30">
               <button
                 onClick={() => {
                   if ('vibrate' in navigator) navigator.vibrate(10)
@@ -161,7 +105,7 @@ export default function Navigation() {
                   setIsOpen(false)
                   analytics.languageChange('pt')
                 }}
-                className={`px-4 py-3 rounded-lg text-sm font-medium transition min-h-[48px] min-w-[48px] flex items-center justify-center touch-manipulation active:scale-95 ${
+                className={`px-4 py-3 rounded-lg text-sm font-medium transition min-h-[48px] min-w-[48px] flex items-center justify-center touch-manipulation active:scale-95 outline-none focus:outline-none ${
                   language === 'pt'
                     ? 'bg-[#d5ffa1] text-[#191919]'
                     : 'text-gray-300 active:bg-gray-800'
@@ -176,7 +120,7 @@ export default function Navigation() {
                   setIsOpen(false)
                   analytics.languageChange('en')
                 }}
-                className={`px-4 py-3 rounded-lg text-sm font-medium transition min-h-[48px] min-w-[48px] flex items-center justify-center touch-manipulation active:scale-95 ${
+                className={`px-4 py-3 rounded-lg text-sm font-medium transition min-h-[48px] min-w-[48px] flex items-center justify-center touch-manipulation active:scale-95 outline-none focus:outline-none ${
                   language === 'en'
                     ? 'bg-[#d5ffa1] text-[#191919]'
                     : 'text-gray-300 active:bg-gray-800'

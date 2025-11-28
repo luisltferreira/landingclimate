@@ -60,14 +60,14 @@ const values = [
                 key={`first-${index}`}
                 className="flex-shrink-0 w-[300px] sm:w-[350px] md:w-[400px] px-4"
               >
-                <div className="p-6 sm:p-8 md:p-10 border border-gray-700 rounded-xl transition-all duration-500 hover-lift hover:border-[#d5ffa1] hover:bg-gradient-to-br hover:from-[#d5ffa1]/10 hover:to-transparent group will-change-transform h-full">
+                <div className="p-6 sm:p-8 md:p-10 border border-[#d5ffa1]/30 rounded-xl transition-all duration-500 hover-lift hover:border-[#d5ffa1] hover:bg-gradient-to-br hover:from-[#d5ffa1]/10 hover:to-transparent group will-change-transform h-full">
                   <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-[#d5ffa1] rounded-xl flex items-center justify-center mb-4 sm:mb-6 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-lg group-hover:shadow-[#d5ffa1]/30 will-change-transform">
                     <Icon size={24} className="sm:w-7 sm:h-7 md:w-8 md:h-8 text-[#191919] transition-transform duration-300 group-hover:scale-110 will-change-transform" />
                   </div>
                   <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">
                     {value.title}
                   </h3>
-                  <p className="text-sm sm:text-base text-gray-300 leading-relaxed transition-colors duration-300 group-hover:text-gray-100">
+                  <p className="text-sm sm:text-base text-white leading-relaxed transition-colors duration-300 group-hover:text-[#d5ffa1]">
                     {value.description}
                   </p>
                 </div>
@@ -82,14 +82,14 @@ const values = [
                 key={`second-${index}`}
                 className="flex-shrink-0 w-[300px] sm:w-[350px] md:w-[400px] px-4"
               >
-                <div className="p-6 sm:p-8 md:p-10 border border-gray-700 rounded-xl transition-all duration-500 hover-lift hover:border-[#d5ffa1] hover:bg-gradient-to-br hover:from-[#d5ffa1]/10 hover:to-transparent group will-change-transform h-full">
+                <div className="p-6 sm:p-8 md:p-10 border border-[#d5ffa1]/30 rounded-xl transition-all duration-500 hover-lift hover:border-[#d5ffa1] hover:bg-gradient-to-br hover:from-[#d5ffa1]/10 hover:to-transparent group will-change-transform h-full">
                   <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-[#d5ffa1] rounded-xl flex items-center justify-center mb-4 sm:mb-6 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-lg group-hover:shadow-[#d5ffa1]/30 will-change-transform">
                     <Icon size={24} className="sm:w-7 sm:h-7 md:w-8 md:h-8 text-[#191919] transition-transform duration-300 group-hover:scale-110 will-change-transform" />
                   </div>
                   <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">
                     {value.title}
                   </h3>
-                  <p className="text-sm sm:text-base text-gray-300 leading-relaxed transition-colors duration-300 group-hover:text-gray-100">
+                  <p className="text-sm sm:text-base text-white leading-relaxed transition-colors duration-300 group-hover:text-[#d5ffa1]">
                     {value.description}
                   </p>
                 </div>
